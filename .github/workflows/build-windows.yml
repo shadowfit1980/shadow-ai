@@ -11,6 +11,9 @@ on:
         required: false
         default: ''
 
+permissions:
+  contents: write
+
 env:
   NODE_VERSION: '20'
 
@@ -35,7 +38,7 @@ jobs:
         run: npm run build
 
       - name: Package for Windows (NSIS Installer + Portable)
-        run: npm run package:win
+        run: npx electron-builder --win --publish never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -72,6 +75,8 @@ jobs:
     needs: build-windows
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
     
     steps:
       - name: Download all artifacts
