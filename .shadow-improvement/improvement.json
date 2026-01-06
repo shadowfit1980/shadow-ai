@@ -1,0 +1,178 @@
+{
+  "strategies": [
+    {
+      "id": "strat-1765496654736-zzk98q",
+      "name": "Default Prompt",
+      "type": "prompt",
+      "prompt": "You are a helpful coding assistant. Answer the user's question directly and concisely.",
+      "parameters": {},
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": true,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    },
+    {
+      "id": "strat-1765496654736-icwxf",
+      "name": "Chain of Thought",
+      "type": "prompt",
+      "prompt": "You are a helpful coding assistant. Think step by step before answering. First outline your approach, then provide the solution.",
+      "parameters": {},
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": false,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    },
+    {
+      "id": "strat-1765496654736-kajlqf",
+      "name": "Expert Persona",
+      "type": "prompt",
+      "prompt": "You are an expert software architect with 20 years of experience. Provide professional-grade solutions with best practices.",
+      "parameters": {},
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": false,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    },
+    {
+      "id": "strat-1765496654736-tdf6qj",
+      "name": "Conservative (0.3)",
+      "type": "temperature",
+      "parameters": {
+        "temperature": 0.3
+      },
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": true,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    },
+    {
+      "id": "strat-1765496654736-222pnc",
+      "name": "Balanced (0.7)",
+      "type": "temperature",
+      "parameters": {
+        "temperature": 0.7
+      },
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": false,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    },
+    {
+      "id": "strat-1765496654736-ecxdc8",
+      "name": "Creative (0.9)",
+      "type": "temperature",
+      "parameters": {
+        "temperature": 0.9
+      },
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": false,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    },
+    {
+      "id": "strat-1765496654736-3jmgjp",
+      "name": "Direct Answer",
+      "type": "reasoning",
+      "parameters": {
+        "showReasoning": false
+      },
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": true,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    },
+    {
+      "id": "strat-1765496654736-7c13to",
+      "name": "Show Work",
+      "type": "reasoning",
+      "parameters": {
+        "showReasoning": true
+      },
+      "metrics": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "successRate": 0,
+        "avgResponseTime": 0,
+        "avgTokens": 0,
+        "userSatisfaction": 0,
+        "confidenceScore": 0.5
+      },
+      "isActive": true,
+      "isControl": false,
+      "createdAt": "2025-12-11T23:44:14.736Z",
+      "updatedAt": "2025-12-11T23:44:14.736Z"
+    }
+  ],
+  "experiments": []
+}

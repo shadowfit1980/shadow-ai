@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SHADOW_AI_CAPABILITIES</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#shadow-ai---universal-development-agent"
+id="toc-shadow-ai---universal-development-agent">Shadow AI - Universal
+Development Agent</a>
+<ul>
+<li><a href="#complete-documentation-capabilities-guide"
+id="toc-complete-documentation-capabilities-guide">Complete
+Documentation &amp; Capabilities Guide</a></li>
+</ul></li>
+<li><a href="#table-of-contents" id="toc-table-of-contents">Table of
+Contents</a></li>
+<li><a href="#overview" id="toc-overview">Overview</a>
+<ul>
+<li><a href="#key-features" id="toc-key-features">Key Features</a></li>
+</ul></li>
+<li><a href="#architecture" id="toc-architecture">Architecture</a>
+<ul>
+<li><a href="#technology-stack" id="toc-technology-stack">Technology
+Stack</a></li>
+<li><a href="#directory-structure"
+id="toc-directory-structure">Directory Structure</a></li>
+</ul></li>
+<li><a href="#game-development-services"
+id="toc-game-development-services">Game Development Services</a>
+<ul>
+<li><a href="#specialized-game-development-services"
+id="toc-specialized-game-development-services">89 Specialized Game
+Development Services</a>
+<ul>
+<li><a href="#game-engines-10-supported"
+id="toc-game-engines-10-supported">Game Engines (10+ supported)</a></li>
+<li><a href="#game-genres-15-supported"
+id="toc-game-genres-15-supported">Game Genres (15+ supported)</a></li>
+<li><a href="#core-game-systems-20" id="toc-core-game-systems-20">Core
+Game Systems (20+)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#full-stack-development-services"
+id="toc-full-stack-development-services">Full-Stack Development
+Services</a>
+<ul>
+<li><a href="#specialized-full-stack-services"
+id="toc-specialized-full-stack-services">91 Specialized Full-Stack
+Services</a>
+<ul>
+<li><a href="#backend-frameworks" id="toc-backend-frameworks">Backend
+Frameworks</a></li>
+<li><a href="#frontend-frameworks" id="toc-frontend-frameworks">Frontend
+Frameworks</a></li>
+<li><a href="#state-management" id="toc-state-management">State
+Management</a></li>
+<li><a href="#mobile-development" id="toc-mobile-development">Mobile
+Development</a></li>
+<li><a href="#desktop-development" id="toc-desktop-development">Desktop
+Development</a></li>
+<li><a href="#runtime-alternatives"
+id="toc-runtime-alternatives">Runtime Alternatives</a></li>
+<li><a href="#database-orm" id="toc-database-orm">Database &amp;
+ORM</a></li>
+<li><a href="#authentication-authorization"
+id="toc-authentication-authorization">Authentication &amp;
+Authorization</a></li>
+<li><a href="#api-infrastructure" id="toc-api-infrastructure">API
+Infrastructure</a></li>
+<li><a href="#real-time-messaging"
+id="toc-real-time-messaging">Real-time &amp; Messaging</a></li>
+<li><a href="#cloud-infrastructure" id="toc-cloud-infrastructure">Cloud
+&amp; Infrastructure</a></li>
+<li><a href="#enterprise-patterns"
+id="toc-enterprise-patterns">Enterprise Patterns</a></li>
+<li><a href="#testing" id="toc-testing">Testing</a></li>
+<li><a href="#observability"
+id="toc-observability">Observability</a></li>
+<li><a href="#forms-validation" id="toc-forms-validation">Forms &amp;
+Validation</a></li>
+<li><a href="#file-handling" id="toc-file-handling">File
+Handling</a></li>
+<li><a href="#search" id="toc-search">Search</a></li>
+<li><a href="#notifications"
+id="toc-notifications">Notifications</a></li>
+<li><a href="#analytics" id="toc-analytics">Analytics</a></li>
+<li><a href="#performance" id="toc-performance">Performance</a></li>
+<li><a href="#pwa-web3" id="toc-pwa-web3">PWA &amp; Web3</a></li>
+<li><a href="#extensions-bots" id="toc-extensions-bots">Extensions &amp;
+Bots</a></li>
+<li><a href="#cli-tools" id="toc-cli-tools">CLI Tools</a></li>
+<li><a href="#documentation"
+id="toc-documentation">Documentation</a></li>
+<li><a href="#security" id="toc-security">Security</a></li>
+<li><a href="#uiux" id="toc-uiux">UI/UX</a></li>
+<li><a href="#payments-cms" id="toc-payments-cms">Payments &amp;
+CMS</a></li>
+<li><a href="#feature-management" id="toc-feature-management">Feature
+Management</a></li>
+<li><a href="#ai-ml" id="toc-ai-ml">AI &amp; ML</a></li>
+<li><a href="#publishing" id="toc-publishing">Publishing</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#complete-service-catalog"
+id="toc-complete-service-catalog">Complete Service Catalog</a>
+<ul>
+<li><a href="#summary-statistics" id="toc-summary-statistics">Summary
+Statistics</a></li>
+</ul></li>
+<li><a href="#areas-for-improvement"
+id="toc-areas-for-improvement">Areas for Improvement</a>
+<ul>
+<li><a href="#additional-language-support"
+id="toc-additional-language-support">1. Additional Language
+Support</a></li>
+<li><a href="#additional-game-engines"
+id="toc-additional-game-engines">2. Additional Game Engines</a></li>
+<li><a href="#more-cloud-providers" id="toc-more-cloud-providers">3.
+More Cloud Providers</a></li>
+<li><a href="#additional-database-support"
+id="toc-additional-database-support">4. Additional Database
+Support</a></li>
+<li><a href="#more-testing-tools" id="toc-more-testing-tools">5. More
+Testing Tools</a></li>
+<li><a href="#devsecops" id="toc-devsecops">6. DevSecOps</a></li>
+<li><a href="#ui-enhancement" id="toc-ui-enhancement">7. UI
+Enhancement</a></li>
+<li><a href="#ai-improvements" id="toc-ai-improvements">8. AI
+Improvements</a></li>
+</ul></li>
+<li><a href="#conclusion" id="toc-conclusion">Conclusion</a></li>
+</ul>
+</nav>
+<h1 id="shadow-ai---universal-development-agent">Shadow AI - Universal
+Development Agent</h1>
+<h2 id="complete-documentation-capabilities-guide">Complete
+Documentation &amp; Capabilities Guide</h2>
+<p><strong>Version:</strong> 3.0.0<br />
+<strong>Total Services:</strong> 180<br />
+<strong>Build Status:</strong> ✅ Passing<br />
+<strong>Generated:</strong> December 17, 2025</p>
+<hr />
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol type="1">
+<li><a href="#overview">Overview</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#game-development-services">Game Development Services
+(89)</a></li>
+<li><a href="#full-stack-development-services">Full-Stack Development
+Services (91)</a></li>
+<li><a href="#complete-service-catalog">Complete Service
+Catalog</a></li>
+<li><a href="#areas-for-improvement">Areas for Improvement</a></li>
+</ol>
+<hr />
+<h1 id="overview">Overview</h1>
+<p>Shadow AI is an Electron-based universal development agent powered by
+advanced AI models. It provides comprehensive code generation,
+development assistance, and autonomous workflow capabilities across
+<strong>180 specialized services</strong> covering game development and
+full-stack web/mobile/desktop development.</p>
+<h2 id="key-features">Key Features</h2>
+<ul>
+<li><strong>AI-Powered Code Generation</strong>: Leverages multiple AI
+models (OpenAI, Anthropic, Google, Kimi K2) with intelligent
+routing</li>
+<li><strong>180 Specialized Services</strong>: Code generators for every
+development domain</li>
+<li><strong>900+ IPC Handlers</strong>: Seamless main/renderer process
+communication</li>
+<li><strong>Autonomous Workflows</strong>: Self-executing development
+pipelines</li>
+<li><strong>Multi-Engine Game Development</strong>: Support for 10+ game
+engines and 15+ genres</li>
+<li><strong>Enterprise Patterns</strong>: Multi-tenancy, CQRS, Event
+Sourcing, RBAC/ABAC</li>
+<li><strong>Modern Architecture</strong>: Clean, Hexagonal, DDD patterns
+built-in</li>
+</ul>
+<hr />
+<h1 id="architecture">Architecture</h1>
+<h2 id="technology-stack">Technology Stack</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Runtime</strong></td>
+<td>Electron 28+</td>
+</tr>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>React 18, TypeScript, Vite</td>
+</tr>
+<tr>
+<td><strong>Backend</strong></td>
+<td>Node.js, TypeScript</td>
+</tr>
+<tr>
+<td><strong>AI Models</strong></td>
+<td>OpenAI GPT-4, Claude 3.5, Gemini, Kimi K2</td>
+</tr>
+<tr>
+<td><strong>State</strong></td>
+<td>Zustand</td>
+</tr>
+<tr>
+<td><strong>IPC</strong></td>
+<td>Electron IPC (1200+ handlers)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="directory-structure">Directory Structure</h2>
+<pre><code>shadow-ai/
+├── src/
+│   ├── main/                    # Electron main process
+│   │   ├── ai/                  # AI routing, memory, agents
+│   │   │   ├── routing/         # Model selection &amp; fallback
+│   │   │   ├── memory/          # Vector store &amp; context
+│   │   │   └── terminal/        # Terminal agent
+│   │   ├── ipc/                 # IPC handlers (1200+)
+│   │   │   ├── fileHandlers.ts
+│   │   │   ├── whisperHandlers.ts
+│   │   │   ├── kimiK2Handlers.ts  # 900+ service handlers
+│   │   │   └── ...
+│   │   └── services/            # 180 code generation services
+│   │       ├── game/            # 89 game services
+│   │       └── *.ts             # 91 full-stack services
+│   └── renderer/                # React frontend
+│       ├── components/
+│       └── hooks/
+├── package.json
+└── electron.vite.config.ts</code></pre>
+<hr />
+<h1 id="game-development-services">Game Development Services</h1>
+<h2 id="specialized-game-development-services">89 Specialized Game
+Development Services</h2>
+<h3 id="game-engines-10-supported">Game Engines (10+ supported)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 29%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Engine</th>
+<th>Service</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unity</strong></td>
+<td><code>UnityProjectGenerator</code></td>
+<td>C# scripts, prefabs, ScriptableObjects, ECS</td>
+</tr>
+<tr>
+<td><strong>Unreal</strong></td>
+<td><code>UnrealProjectGenerator</code></td>
+<td>Blueprints, C++, materials, actors</td>
+</tr>
+<tr>
+<td><strong>Godot</strong></td>
+<td><code>GodotProjectGenerator</code></td>
+<td>GDScript, nodes, scenes, signals</td>
+</tr>
+<tr>
+<td><strong>Phaser</strong></td>
+<td><code>PhaserGenerator</code></td>
+<td>TypeScript, scenes, physics</td>
+</tr>
+<tr>
+<td><strong>PixiJS</strong></td>
+<td><code>PixiJSGenerator</code></td>
+<td>WebGL rendering, sprites, filters</td>
+</tr>
+<tr>
+<td><strong>Three.js</strong></td>
+<td><code>ThreeJSGenerator</code></td>
+<td>3D scenes, materials, animations</td>
+</tr>
+<tr>
+<td><strong>Babylon.js</strong></td>
+<td><code>BabylonGenerator</code></td>
+<td>3D worlds, physics, XR</td>
+</tr>
+<tr>
+<td><strong>PlayCanvas</strong></td>
+<td><code>PlayCanvasGenerator</code></td>
+<td>Browser 3D, components</td>
+</tr>
+<tr>
+<td><strong>Cocos</strong></td>
+<td><code>CocosGenerator</code></td>
+<td>2D/3D mobile games</td>
+</tr>
+<tr>
+<td><strong>RPG Maker</strong></td>
+<td><code>RPGMakerGenerator</code></td>
+<td>Events, plugins, maps</td>
+</tr>
+</tbody>
+</table>
+<h3 id="game-genres-15-supported">Game Genres (15+ supported)</h3>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 34%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Genre</th>
+<th>Service</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Platformer</strong></td>
+<td><code>PlatformerGenerator</code></td>
+<td>Physics, tile maps, abilities</td>
+</tr>
+<tr>
+<td><strong>RPG</strong></td>
+<td><code>RPGGenerator</code></td>
+<td>Stats, inventory, quests, dialogue</td>
+</tr>
+<tr>
+<td><strong>FPS</strong></td>
+<td><code>FPSGenerator</code></td>
+<td>Weapons, aiming, multiplayer</td>
+</tr>
+<tr>
+<td><strong>RTS</strong></td>
+<td><code>RTSGenerator</code></td>
+<td>Units, buildings, AI, fog of war</td>
+</tr>
+<tr>
+<td><strong>Racing</strong></td>
+<td><code>RacingGenerator</code></td>
+<td>Vehicles, tracks, AI racers</td>
+</tr>
+<tr>
+<td><strong>Puzzle</strong></td>
+<td><code>PuzzleGenerator</code></td>
+<td>Match-3, physics puzzles</td>
+</tr>
+<tr>
+<td><strong>Survival</strong></td>
+<td><code>SurvivalGenerator</code></td>
+<td>Crafting, hunger, base building</td>
+</tr>
+<tr>
+<td><strong>Tower Defense</strong></td>
+<td><code>TowerDefenseGenerator</code></td>
+<td>Towers, waves, upgrades</td>
+</tr>
+<tr>
+<td><strong>Roguelike</strong></td>
+<td><code>RoguelikeGenerator</code></td>
+<td>Procedural gen, permadeath</td>
+</tr>
+<tr>
+<td><strong>Fighting</strong></td>
+<td><code>FightingGenerator</code></td>
+<td>Combos, hitboxes, frame data</td>
+</tr>
+<tr>
+<td><strong>Horror</strong></td>
+<td><code>HorrorGenerator</code></td>
+<td>Atmosphere, scares, sanity</td>
+</tr>
+<tr>
+<td><strong>Sports</strong></td>
+<td><code>SportsGenerator</code></td>
+<td>Physics, teams, seasons</td>
+</tr>
+<tr>
+<td><strong>Simulation</strong></td>
+<td><code>SimulationGenerator</code></td>
+<td>Economy, AI citizens</td>
+</tr>
+<tr>
+<td><strong>Card Game</strong></td>
+<td><code>CardGameGenerator</code></td>
+<td>Decks, hands, effects</td>
+</tr>
+<tr>
+<td><strong>Visual Novel</strong></td>
+<td><code>VisualNovelGenerator</code></td>
+<td>Dialogue trees, branching</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core-game-systems-20">Core Game Systems (20+)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 29%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>System</th>
+<th>Service</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Physics</strong></td>
+<td><code>PhysicsSystemGenerator</code></td>
+<td>2D/3D physics, collisions, raycasting</td>
+</tr>
+<tr>
+<td><strong>AI/Pathfinding</strong></td>
+<td><code>AISystemGenerator</code></td>
+<td>A*, behavior trees, steering</td>
+</tr>
+<tr>
+<td><strong>Networking</strong></td>
+<td><code>MultiplayerGenerator</code></td>
+<td>P2P, client-server, sync</td>
+</tr>
+<tr>
+<td><strong>Audio</strong></td>
+<td><code>AudioSystemGenerator</code></td>
+<td>3D audio, music, SFX</td>
+</tr>
+<tr>
+<td><strong>Particles</strong></td>
+<td><code>ParticleSystemGenerator</code></td>
+<td>Emitters, effects</td>
+</tr>
+<tr>
+<td><strong>Animation</strong></td>
+<td><code>AnimationSystemGenerator</code></td>
+<td>State machines, blending</td>
+</tr>
+<tr>
+<td><strong>UI/HUD</strong></td>
+<td><code>GameUIGenerator</code></td>
+<td>Health bars, menus, inventory</td>
+</tr>
+<tr>
+<td><strong>Save System</strong></td>
+<td><code>SaveSystemGenerator</code></td>
+<td>Local, cloud saves</td>
+</tr>
+<tr>
+<td><strong>Dialogue</strong></td>
+<td><code>DialogueSystemGenerator</code></td>
+<td>Trees, localization</td>
+</tr>
+<tr>
+<td><strong>Quest</strong></td>
+<td><code>QuestSystemGenerator</code></td>
+<td>Objectives, rewards</td>
+</tr>
+<tr>
+<td><strong>Inventory</strong></td>
+<td><code>InventorySystemGenerator</code></td>
+<td>Items, stacking, equipment</td>
+</tr>
+<tr>
+<td><strong>Combat</strong></td>
+<td><code>CombatSystemGenerator</code></td>
+<td>Turn-based, real-time</td>
+</tr>
+<tr>
+<td><strong>Crafting</strong></td>
+<td><code>CraftingSystemGenerator</code></td>
+<td>Recipes, materials</td>
+</tr>
+<tr>
+<td><strong>Economy</strong></td>
+<td><code>EconomySystemGenerator</code></td>
+<td>Currency, trading, shops</td>
+</tr>
+<tr>
+<td><strong>Weather</strong></td>
+<td><code>WeatherSystemGenerator</code></td>
+<td>Day/night, rain, seasons</td>
+</tr>
+<tr>
+<td><strong>Terrain</strong></td>
+<td><code>TerrainGenerator</code></td>
+<td>Procedural, heightmaps</td>
+</tr>
+<tr>
+<td><strong>Character</strong></td>
+<td><code>CharacterCreatorGenerator</code></td>
+<td>Customization, presets</td>
+</tr>
+<tr>
+<td><strong>Achievements</strong></td>
+<td><code>AchievementSystemGenerator</code></td>
+<td>Unlocks, progress</td>
+</tr>
+<tr>
+<td><strong>Leaderboards</strong></td>
+<td><code>LeaderboardGenerator</code></td>
+<td>Online rankings</td>
+</tr>
+<tr>
+<td><strong>Input</strong></td>
+<td><code>InputSystemGenerator</code></td>
+<td>Keyboard, gamepad, touch</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="full-stack-development-services">Full-Stack Development
+Services</h1>
+<h2 id="specialized-full-stack-services">91 Specialized Full-Stack
+Services</h2>
+<h3 id="backend-frameworks">Backend Frameworks</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 36%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ExpressGenerator</code></td>
+<td>Express.js</td>
+<td>REST APIs, middleware, routing</td>
+</tr>
+<tr>
+<td><code>FastifyGenerator</code></td>
+<td>Fastify</td>
+<td>High-performance APIs, plugins</td>
+</tr>
+<tr>
+<td><code>NestJSGenerator</code></td>
+<td>NestJS</td>
+<td>Decorators, modules, DI</td>
+</tr>
+<tr>
+<td><code>GraphQLGenerator</code></td>
+<td>Apollo, GraphQL</td>
+<td>Queries, mutations, subscriptions</td>
+</tr>
+<tr>
+<td><code>GraphQLTooling</code></td>
+<td>CodeGen, Federation</td>
+<td>Type generation, microservices</td>
+</tr>
+<tr>
+<td><code>TRPCGenerator</code></td>
+<td>tRPC</td>
+<td>Type-safe APIs, React Query</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frontend-frameworks">Frontend Frameworks</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ReactGenerator</code></td>
+<td>React 18</td>
+<td>Hooks, context, Suspense</td>
+</tr>
+<tr>
+<td><code>NextJSGenerator</code></td>
+<td>Next.js 14</td>
+<td>App Router, RSC, SSR/SSG</td>
+</tr>
+<tr>
+<td><code>RemixGenerator</code></td>
+<td>Remix</td>
+<td>Loaders, actions, forms</td>
+</tr>
+<tr>
+<td><code>VueGenerator</code></td>
+<td>Vue 3</td>
+<td>Composition API, Pinia</td>
+</tr>
+<tr>
+<td><code>SvelteGenerator</code></td>
+<td>SvelteKit</td>
+<td>Stores, load functions</td>
+</tr>
+<tr>
+<td><code>AngularGenerator</code></td>
+<td>Angular 17</td>
+<td>Signals, standalone</td>
+</tr>
+<tr>
+<td><code>SSGGenerator</code></td>
+<td>Astro, 11ty</td>
+<td>Static sites, islands</td>
+</tr>
+<tr>
+<td><code>MicroFrontends</code></td>
+<td>Module Federation</td>
+<td>Remote modules, shared state</td>
+</tr>
+</tbody>
+</table>
+<h3 id="state-management">State Management</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>StateGenerator</code></td>
+<td>Redux Toolkit, Zustand, MobX, Jotai</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mobile-development">Mobile Development</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ReactNativeGenerator</code></td>
+<td>React Native</td>
+<td>Native modules, navigation</td>
+</tr>
+<tr>
+<td><code>FlutterGenerator</code></td>
+<td>Flutter/Dart</td>
+<td>Widgets, state management</td>
+</tr>
+</tbody>
+</table>
+<h3 id="desktop-development">Desktop Development</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ElectronGenerator</code></td>
+<td>Electron</td>
+<td>IPC, system integration</td>
+</tr>
+<tr>
+<td><code>TauriGenerator</code></td>
+<td>Tauri/Rust</td>
+<td>Lightweight, secure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runtime-alternatives">Runtime Alternatives</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DenoPatterns</code></td>
+<td>Deno, Fresh, Oak</td>
+<td>Modern runtime, native APIs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="database-orm">Database &amp; ORM</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ORMGenerator</code></td>
+<td>Prisma, Drizzle, TypeORM</td>
+<td>Schemas, migrations</td>
+</tr>
+<tr>
+<td><code>SQLGenerator</code></td>
+<td>PostgreSQL, MySQL</td>
+<td>Raw queries, optimization</td>
+</tr>
+<tr>
+<td><code>NoSQLGenerator</code></td>
+<td>MongoDB, DynamoDB</td>
+<td>Documents, aggregations</td>
+</tr>
+<tr>
+<td><code>RedisPatterns</code></td>
+<td>Redis</td>
+<td>Caching, pub/sub, sessions</td>
+</tr>
+<tr>
+<td><code>DataSeeder</code></td>
+<td>Faker</td>
+<td>Realistic test data</td>
+</tr>
+<tr>
+<td><code>DataExporter</code></td>
+<td>CSV, Excel, ZIP</td>
+<td>Data export utilities</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authentication-authorization">Authentication &amp;
+Authorization</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 36%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AuthGenerator</code></td>
+<td>NextAuth, Lucia, Clerk</td>
+<td>OAuth, magic links, sessions</td>
+</tr>
+<tr>
+<td><code>AuthorizationPatterns</code></td>
+<td>CASL, RBAC, ABAC</td>
+<td>Permissions, policies</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-infrastructure">API Infrastructure</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>APIGateway</code></td>
+<td>Kong, AWS API Gateway</td>
+<td>Rate limiting, auth</td>
+</tr>
+<tr>
+<td><code>OpenAPIGenerator</code></td>
+<td>Swagger, OpenAPI 3.1</td>
+<td>Specs, documentation</td>
+</tr>
+<tr>
+<td><code>CachingStrategies</code></td>
+<td>Redis, CDN</td>
+<td>Cache patterns, invalidation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="real-time-messaging">Real-time &amp; Messaging</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WebSocketGenerator</code></td>
+<td>Socket.io, WS</td>
+<td>Real-time communication</td>
+</tr>
+<tr>
+<td><code>QueueGenerator</code></td>
+<td>BullMQ, RabbitMQ</td>
+<td>Job queues, workers</td>
+</tr>
+<tr>
+<td><code>WebhookHandler</code></td>
+<td>Webhooks</td>
+<td>Receiving, verification, retry</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cloud-infrastructure">Cloud &amp; Infrastructure</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DockerGenerator</code></td>
+<td>Docker, Compose</td>
+<td>Containers, multi-stage</td>
+</tr>
+<tr>
+<td><code>KubernetesGenerator</code></td>
+<td>K8s</td>
+<td>Deployments, services, ingress</td>
+</tr>
+<tr>
+<td><code>ServerlessGenerator</code></td>
+<td>AWS Lambda</td>
+<td>Functions, triggers</td>
+</tr>
+<tr>
+<td><code>ServerlessFramework</code></td>
+<td>SST, Serverless</td>
+<td>Full-stack serverless</td>
+</tr>
+<tr>
+<td><code>TerraformGenerator</code></td>
+<td>Terraform</td>
+<td>AWS/GCP/Azure IaC</td>
+</tr>
+<tr>
+<td><code>MonorepoGenerator</code></td>
+<td>Turborepo, Nx</td>
+<td>Workspace management</td>
+</tr>
+<tr>
+<td><code>EdgeFunctionsGenerator</code></td>
+<td>Cloudflare, Vercel</td>
+<td>Edge computing</td>
+</tr>
+<tr>
+<td><code>ServiceMesh</code></td>
+<td>Istio</td>
+<td>Traffic routing, mTLS</td>
+</tr>
+<tr>
+<td><code>DeploymentStrategies</code></td>
+<td>Blue/Green, Canary</td>
+<td>Zero-downtime deploys</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enterprise-patterns">Enterprise Patterns</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 36%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MultiTenancyPatterns</code></td>
+<td>Row-level, Schema</td>
+<td>SaaS architectures</td>
+</tr>
+<tr>
+<td><code>EventSourcingGenerator</code></td>
+<td>CQRS, Event Store</td>
+<td>Aggregates, projections</td>
+</tr>
+<tr>
+<td><code>SchedulerGenerator</code></td>
+<td>node-cron, Agenda</td>
+<td>Job scheduling</td>
+</tr>
+<tr>
+<td><code>MicroservicesPatterns</code></td>
+<td>Saga, Circuit Breaker</td>
+<td>Distributed patterns</td>
+</tr>
+<tr>
+<td><code>ArchitecturePatterns</code></td>
+<td>Clean, Hexagonal, DDD</td>
+<td>Architecture templates</td>
+</tr>
+</tbody>
+</table>
+<h3 id="testing">Testing</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TestGenerator</code></td>
+<td>Jest, Vitest, Mocha</td>
+<td>Unit tests</td>
+</tr>
+<tr>
+<td><code>E2ETestGenerator</code></td>
+<td>Playwright, Cypress</td>
+<td>End-to-end tests</td>
+</tr>
+<tr>
+<td><code>APIMockingGenerator</code></td>
+<td>MSW</td>
+<td>API mocking</td>
+</tr>
+<tr>
+<td><code>LoadTestingGenerator</code></td>
+<td>k6, Artillery</td>
+<td>Performance tests</td>
+</tr>
+<tr>
+<td><code>ContractTestingGenerator</code></td>
+<td>Pact</td>
+<td>Consumer-driven contracts</td>
+</tr>
+<tr>
+<td><code>VisualRegressionTesting</code></td>
+<td>Percy, Chromatic</td>
+<td>Screenshot comparison</td>
+</tr>
+<tr>
+<td><code>ChaosEngineering</code></td>
+<td>Fault injection</td>
+<td>Resilience testing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="observability">Observability</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LoggingGenerator</code></td>
+<td>Pino, Winston</td>
+<td>Structured logging</td>
+</tr>
+<tr>
+<td><code>MonitoringGenerator</code></td>
+<td>Prometheus, Grafana</td>
+<td>Metrics, dashboards</td>
+</tr>
+<tr>
+<td><code>DistributedTracing</code></td>
+<td>OpenTelemetry, Jaeger</td>
+<td>Request tracing</td>
+</tr>
+<tr>
+<td><code>ErrorTrackingGenerator</code></td>
+<td>Sentry</td>
+<td>Error reporting</td>
+</tr>
+</tbody>
+</table>
+<h3 id="forms-validation">Forms &amp; Validation</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FormBuilder</code></td>
+<td>React Hook Form, Formik</td>
+<td>Form state, submission</td>
+</tr>
+<tr>
+<td><code>ValidationGenerator</code></td>
+<td>Zod, Yup, Joi</td>
+<td>Schema validation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="file-handling">File Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FileUploadGenerator</code></td>
+<td>S3, Cloudinary</td>
+<td>Upload, storage</td>
+</tr>
+<tr>
+<td><code>MediaProcessor</code></td>
+<td>Sharp, FFmpeg</td>
+<td>Image/video processing</td>
+</tr>
+<tr>
+<td><code>PDFGenerator</code></td>
+<td>Puppeteer</td>
+<td>PDF generation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="search">Search</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 36%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SearchGenerator</code></td>
+<td>Elasticsearch, Algolia, Meilisearch</td>
+<td>Full-text search</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notifications">Notifications</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 36%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NotificationServiceGenerator</code></td>
+<td>FCM, APNs, Email</td>
+<td>Push notifications</td>
+</tr>
+</tbody>
+</table>
+<h3 id="analytics">Analytics</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AnalyticsGenerator</code></td>
+<td>GA4, Mixpanel</td>
+<td>Event tracking</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance">Performance</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PerformanceOptimizer</code></td>
+<td>Web Vitals</td>
+<td>Core Web Vitals optimization</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pwa-web3">PWA &amp; Web3</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PWAGenerator</code></td>
+<td>Service Workers</td>
+<td>Offline support, install</td>
+</tr>
+<tr>
+<td><code>Web3Generator</code></td>
+<td>Wagmi, ethers.js</td>
+<td>Wallet connection</td>
+</tr>
+<tr>
+<td><code>SmartContractGenerator</code></td>
+<td>Solidity, Hardhat</td>
+<td>ERC20/721 contracts</td>
+</tr>
+<tr>
+<td><code>WASMGenerator</code></td>
+<td>Rust, WebAssembly</td>
+<td>High-performance code</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extensions-bots">Extensions &amp; Bots</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 36%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BrowserExtensionGenerator</code></td>
+<td>Manifest V3</td>
+<td>Chrome/Firefox extensions</td>
+</tr>
+<tr>
+<td><code>VSCodeExtensionGenerator</code></td>
+<td>VS Code API</td>
+<td>Editor extensions</td>
+</tr>
+<tr>
+<td><code>BotGenerator</code></td>
+<td>Discord.js, Slack, Telegram</td>
+<td>Chat bots</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cli-tools">CLI Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLIGenerator</code></td>
+<td>Commander, Inquirer</td>
+<td>CLI applications</td>
+</tr>
+</tbody>
+</table>
+<h3 id="documentation">Documentation</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DocSiteGenerator</code></td>
+<td>Docusaurus, VitePress</td>
+<td>Documentation sites</td>
+</tr>
+<tr>
+<td><code>StorybookGenerator</code></td>
+<td>Storybook</td>
+<td>Component documentation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security">Security</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SecurityPatterns</code></td>
+<td>CORS, CSRF, Rate Limit</td>
+<td>Security middleware</td>
+</tr>
+</tbody>
+</table>
+<h3 id="uiux">UI/UX</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SEOGenerator</code></td>
+<td>Meta tags, sitemap</td>
+<td>Search optimization</td>
+</tr>
+<tr>
+<td><code>AccessibilityChecker</code></td>
+<td>WCAG, aria</td>
+<td>a11y compliance</td>
+</tr>
+<tr>
+<td><code>DesignSystemGenerator</code></td>
+<td>CSS variables</td>
+<td>Design tokens</td>
+</tr>
+<tr>
+<td><code>I18nGenerator</code></td>
+<td>i18next, Intl</td>
+<td>Internationalization</td>
+</tr>
+</tbody>
+</table>
+<h3 id="payments-cms">Payments &amp; CMS</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PaymentGenerator</code></td>
+<td>Stripe, PayPal</td>
+<td>Checkout, subscriptions</td>
+</tr>
+<tr>
+<td><code>CMSIntegration</code></td>
+<td>Strapi, Sanity, Contentful</td>
+<td>Headless CMS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="feature-management">Feature Management</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FeatureFlagGenerator</code></td>
+<td>LaunchDarkly</td>
+<td>Feature toggles</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai-ml">AI &amp; ML</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LLMIntegration</code></td>
+<td>OpenAI, Anthropic</td>
+<td>AI integration</td>
+</tr>
+<tr>
+<td><code>RAGGenerator</code></td>
+<td>Vector stores, embeddings</td>
+<td>RAG pipelines</td>
+</tr>
+<tr>
+<td><code>MLPipelineGenerator</code></td>
+<td>MLflow, BentoML</td>
+<td>ML Ops</td>
+</tr>
+<tr>
+<td><code>ETLPipelineGenerator</code></td>
+<td>Streams</td>
+<td>Data pipelines</td>
+</tr>
+</tbody>
+</table>
+<h3 id="publishing">Publishing</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Technologies</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PackagePublishing</code></td>
+<td>npm, PyPI</td>
+<td>Package distribution</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="complete-service-catalog">Complete Service Catalog</h1>
+<h2 id="summary-statistics">Summary Statistics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Total Services</strong></td>
+<td>180</td>
+</tr>
+<tr>
+<td><strong>Game Development</strong></td>
+<td>89</td>
+</tr>
+<tr>
+<td><strong>Full-Stack Development</strong></td>
+<td>91</td>
+</tr>
+<tr>
+<td><strong>IPC Handlers</strong></td>
+<td>900+</td>
+</tr>
+<tr>
+<td><strong>Lines of Code</strong></td>
+<td>~200,000+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="areas-for-improvement">Areas for Improvement</h1>
+<p>While the Shadow AI agent is extremely comprehensive, here are
+potential areas you could explore for enhancement:</p>
+<h2 id="additional-language-support">1. Additional Language Support</h2>
+<ul>
+<li><strong>Go</strong> backend patterns (Gin, Fiber, Echo)</li>
+<li><strong>Rust</strong> web frameworks (Actix, Axum)</li>
+<li><strong>Python</strong> web frameworks (FastAPI, Django REST)</li>
+<li><strong>Ruby on Rails</strong> patterns</li>
+<li><strong>Java/Kotlin</strong> Spring Boot patterns</li>
+</ul>
+<h2 id="additional-game-engines">2. Additional Game Engines</h2>
+<ul>
+<li><strong>Defold</strong> (Lua-based engine)</li>
+<li><strong>MonoGame</strong> (C# framework)</li>
+<li><strong>Bevy</strong> (Rust ECS engine)</li>
+<li><strong>Love2D</strong> (Lua 2D framework)</li>
+</ul>
+<h2 id="more-cloud-providers">3. More Cloud Providers</h2>
+<ul>
+<li><strong>DigitalOcean</strong> App Platform patterns</li>
+<li><strong>Fly.io</strong> deployment patterns</li>
+<li><strong>Railway</strong> configurations</li>
+<li><strong>Render</strong> setups</li>
+</ul>
+<h2 id="additional-database-support">4. Additional Database Support</h2>
+<ul>
+<li><strong>CockroachDB</strong> patterns</li>
+<li><strong>TiDB</strong> configurations</li>
+<li><strong>ScyllaDB</strong> patterns</li>
+<li><strong>Neo4j</strong> graph database</li>
+</ul>
+<h2 id="more-testing-tools">5. More Testing Tools</h2>
+<ul>
+<li><strong>Vitest UI</strong> configurations</li>
+<li><strong>Testing Library</strong> patterns</li>
+<li><strong>Detox</strong> React Native E2E</li>
+<li><strong>Maestro</strong> mobile testing</li>
+</ul>
+<h2 id="devsecops">6. DevSecOps</h2>
+<ul>
+<li><strong>SAST</strong> scanner integration</li>
+<li><strong>DAST</strong> patterns</li>
+<li><strong>Dependency scanning</strong> (Snyk, Dependabot)</li>
+<li><strong>Secret scanning</strong> patterns</li>
+</ul>
+<h2 id="ui-enhancement">7. UI Enhancement</h2>
+<ul>
+<li><strong>Agent workflow visualization</strong> improvements</li>
+<li><strong>Real-time code preview</strong></li>
+<li><strong>Drag-and-drop component builder</strong></li>
+<li><strong>Visual architecture designer</strong></li>
+</ul>
+<h2 id="ai-improvements">8. AI Improvements</h2>
+<ul>
+<li><strong>Custom model fine-tuning</strong> interface</li>
+<li><strong>Multi-modal support</strong> (images, diagrams)</li>
+<li><strong>Code review suggestions</strong></li>
+<li><strong>Automated documentation generation</strong></li>
+</ul>
+<hr />
+<h1 id="conclusion">Conclusion</h1>
+<p>Shadow AI is a comprehensive universal development agent with 180
+specialized services covering:</p>
+<ul>
+<li>✅ 10+ game engines</li>
+<li>✅ 15+ game genres</li>
+<li>✅ 20+ core game systems</li>
+<li>✅ All major frontend frameworks</li>
+<li>✅ All major backend patterns</li>
+<li>✅ Mobile (React Native, Flutter)</li>
+<li>✅ Desktop (Electron, Tauri)</li>
+<li>✅ Cloud &amp; DevOps (Docker, K8s, Terraform, Serverless)</li>
+<li>✅ Enterprise patterns (CQRS, Event Sourcing, Multi-tenancy)</li>
+<li>✅ Testing (Unit, E2E, Load, Contract, Visual, Chaos)</li>
+<li>✅ Observability (Tracing, Logging, Monitoring)</li>
+<li>✅ Security, Authentication, Authorization</li>
+<li>✅ AI/ML integration</li>
+<li>✅ And much more…</li>
+</ul>
+<p>The agent represents a truly exhaustive development toolkit.</p>
+<hr />
+<p><em>Document generated by Shadow AI - Universal Development
+Agent</em></p>
+</body>
+</html>

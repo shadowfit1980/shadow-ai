@@ -1,0 +1,140 @@
+/* Visual Game Designer Styles */
+
+.visual-game-designer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #0a0a1e;
+    color: #fff;
+}
+
+.toolbar {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    background: #1a1a2e;
+    border-bottom: 1px solid #333;
+}
+
+.tool-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: #2a2a3e;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tool-btn:hover {
+    background: #3a3a4e;
+    border-color: #666;
+}
+
+.tool-btn.active {
+    background: #4488ff;
+    border-color: #66aaff;
+}
+
+.separator {
+    width: 1px;
+    background: #444;
+    margin: 0 8px;
+}
+
+.canvas-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #111;
+}
+
+.canvas-container canvas {
+    border: 1px solid #333;
+    cursor: crosshair;
+}
+
+.properties-panel {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a2e;
+    border-top: 1px solid #333;
+}
+
+.properties-panel h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.properties-panel h4 {
+    margin: 12px 0 8px 0;
+    font-size: 12px;
+    color: #4488ff;
+    text-transform: uppercase;
+}
+
+.object-props {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #333;
+}
+
+.object-props label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+    font-size: 12px;
+}
+
+.object-props input {
+    width: 60px;
+    padding: 4px 8px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: #2a2a3e;
+    color: #fff;
+    font-size: 12px;
+}
+
+.properties-panel button {
+    margin-top: 12px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background: #4488ff;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.properties-panel button:hover {
+    background: #5599ff;
+}
+
+/* Object palette colors */
+.obj-player {
+    background: #00ff00;
+}
+
+.obj-enemy {
+    background: #ff0000;
+}
+
+.obj-platform {
+    background: #888888;
+}
+
+.obj-item {
+    background: #ffff00;
+}
+
+.obj-trigger {
+    background: #00ffff;
+}

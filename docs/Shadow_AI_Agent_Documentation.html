@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow AI v5.0 Documentation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fff;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            color: #0f3460;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 32px 0 16px;
+            color: #16213e;
+            border-bottom: 2px solid #e94560;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 24px 0 12px;
+            color: #1a1a2e;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #0f3460;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        code {
+            background: #f4f4f8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        pre {
+            background: #1a1a2e;
+            color: #e0e0e0;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge-new {
+            background: #e94560;
+            color: white;
+        }
+
+        .badge-complete {
+            background: #10b981;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .hero p {
+            opacity: 0.9;
+            font-size: 1.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 4px solid #e94560;
+        }
+
+        .card h4 {
+            margin-bottom: 8px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .stat .number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat .label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+            }
+
+            .hero {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .stat {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>🌟 Shadow AI v5.0</h1>
+        <p>Autonomous Engineering Partner</p>
+        <p><span class="badge badge-new">7 Revolutionary Systems</span></p>
+    </div>
+
+    <h2>Executive Summary</h2>
+    <p>Shadow AI v5.0 transforms from a coding assistant into a <strong>true autonomous engineering partner</strong>
+        with 7 foundational AI systems, 12 specialized BDI agents, and comprehensive business-aware capabilities.</p>
+
+    <div class="stat-grid">
+        <div class="stat">
+            <div class="number">7</div>
+            <div class="label">Core Systems</div>
+        </div>
+        <div class="stat">
+            <div class="number">12</div>
+            <div class="label">BDI Agents</div>
+        </div>
+        <div class="stat">
+            <div class="number">120+</div>
+            <div class="label">IPC Handlers</div>
+        </div>
+        <div class="stat">
+            <div class="number">16</div>
+            <div class="label">Dashboard Tabs</div>
+        </div>
+    </div>
+
+    <h2>Revolutionary Systems</h2>
+    <table>
+        <tr>
+            <th>System</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>🧠 Project Knowledge Graph</td>
+            <td>Persistent semantic memory for design decisions</td>
+        </tr>
+        <tr>
+            <td>🐝 BDI Agent Orchestrator</td>
+            <td>12 specialized agents with task decomposition</td>
+        </tr>
+        <tr>
+            <td>🛡️ Security Fortress</td>
+            <td>Zero-trust with 12+ threat patterns</td>
+        </tr>
+        <tr>
+            <td>🎯 Intent Alignment Engine</td>
+            <td>TRUE goal understanding</td>
+        </tr>
+        <tr>
+            <td>⏰ Temporal Replay Engine</td>
+            <td>Decision time-travel & rollback</td>
+        </tr>
+        <tr>
+            <td>🏢 Business-Aware Architect</td>
+            <td>BRD generation & feasibility</td>
+        </tr>
+        <tr>
+            <td>🔀 Intelligent Model Router</td>
+            <td>Cost/quality optimization</td>
+        </tr>
+    </table>
+
+    <h2>BDI Agent Swarm</h2>
+    <div class="grid">
+        <div class="card">
+            <h4>🎭 Nexus</h4>Orchestrator & Coordinator
+        </div>
+        <div class="card">
+            <h4>📋 Clara</h4>Requirements Engineer
+        </div>
+        <div class="card">
+            <h4>🏗️ Atlas</h4>System Architect
+        </div>
+        <div class="card">
+            <h4>🎨 Pixel</h4>Frontend Specialist
+        </div>
+        <div class="card">
+            <h4>⚙️ Server</h4>Backend Specialist
+        </div>
+        <div class="card">
+            <h4>🛡️ Sentinel</h4>Security Auditor
+        </div>
+        <div class="card">
+            <h4>🗄️ Schema</h4>Database Expert
+        </div>
+        <div class="card">
+            <h4>🔧 Pipeline</h4>DevOps Engineer
+        </div>
+        <div class="card">
+            <h4>📊 Guardian</h4>SRE
+        </div>
+        <div class="card">
+            <h4>✅ Tester</h4>QA Engineer
+        </div>
+        <div class="card">
+            <h4>⚡ Turbo</h4>Performance Engineer
+        </div>
+        <div class="card">
+            <h4>📝 Scribe</h4>Technical Writer
+        </div>
+    </div>
+
+    <h2>MasterDashboard Tabs</h2>
+    <table>
+        <tr>
+            <th>Tab</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>📊 Overview</td>
+            <td>All systems at a glance</td>
+        </tr>
+        <tr>
+            <td>💊 Health</td>
+            <td>Architecture & tech debt</td>
+        </tr>
+        <tr>
+            <td>🔌 Plugins</td>
+            <td>Browse & install plugins</td>
+        </tr>
+        <tr>
+            <td>🎭 AI Persona</td>
+            <td>Switch AI personalities</td>
+        </tr>
+        <tr>
+            <td>🐝 Agent Swarm</td>
+            <td>Agent network & debates</td>
+        </tr>
+        <tr>
+            <td>🎤 Voice</td>
+            <td>Hands-free coding</td>
+        </tr>
+        <tr>
+            <td>🎨 Multi-Modal</td>
+            <td>Sketch, voice, Figma</td>
+        </tr>
+        <tr>
+            <td>🚀 Deploy</td>
+            <td>25+ deployment targets</td>
+        </tr>
+        <tr>
+            <td>👥 Collab</td>
+            <td>Real-time collaboration</td>
+        </tr>
+        <tr>
+            <td>🧠 Knowledge</td>
+            <td>Project memory</td>
+        </tr>
+        <tr>
+            <td>🤖 BDI Swarm</td>
+            <td>Agent control</td>
+        </tr>
+        <tr>
+            <td>🛡️ Security</td>
+            <td>Threat scanning</td>
+        </tr>
+        <tr>
+            <td>🎯 Intent</td>
+            <td>Goal understanding</td>
+        </tr>
+        <tr>
+            <td>⏰ Temporal</td>
+            <td>Decision history</td>
+        </tr>
+        <tr>
+            <td>🏢 Business</td>
+            <td>BRD generation</td>
+        </tr>
+        <tr>
+            <td>🔀 Router</td>
+            <td>LLM cost tracking</td>
+        </tr>
+    </table>
+
+    <h2>Security Threat Detection</h2>
+    <table>
+        <tr>
+            <th>Pattern</th>
+            <th>Severity</th>
+        </tr>
+        <tr>
+            <td>SQL Injection</td>
+            <td>🔴 Critical</td>
+        </tr>
+        <tr>
+            <td>Command Injection</td>
+            <td>🔴 Critical</td>
+        </tr>
+        <tr>
+            <td>Insecure Deserialization</td>
+            <td>🔴 Critical</td>
+        </tr>
+        <tr>
+            <td>XSS</td>
+            <td>🟠 High</td>
+        </tr>
+        <tr>
+            <td>Path Traversal</td>
+            <td>🟠 High</td>
+        </tr>
+        <tr>
+            <td>Hardcoded Secrets</td>
+            <td>🟠 High</td>
+        </tr>
+        <tr>
+            <td>XXE</td>
+            <td>🟠 High</td>
+        </tr>
+        <tr>
+            <td>SSRF</td>
+            <td>🟠 High</td>
+        </tr>
+        <tr>
+            <td>Weak Cryptography</td>
+            <td>🟡 Medium</td>
+        </tr>
+    </table>
+
+    <h2>Model Router</h2>
+    <p>Intelligent routing across 10+ LLM providers:</p>
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>Strengths</th>
+        </tr>
+        <tr>
+            <td>GPT-4o</td>
+            <td>Code generation, reasoning</td>
+        </tr>
+        <tr>
+            <td>Claude 3.5 Sonnet</td>
+            <td>Long context, analysis</td>
+        </tr>
+        <tr>
+            <td>Gemini 2.0 Flash</td>
+            <td>Multimodal, fast</td>
+        </tr>
+        <tr>
+            <td>DeepSeek Coder</td>
+            <td>Code-specific</td>
+        </tr>
+        <tr>
+            <td>Ollama (Local)</td>
+            <td>Privacy, offline</td>
+        </tr>
+        <tr>
+            <td>MLX (Local)</td>
+            <td>Apple Silicon optimized</td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 48px; padding: 24px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+        <p><strong>Shadow AI v5.0</strong> | Autonomous Engineering Partner</p>
+        <p style="opacity: 0.7; font-size: 0.9rem;">December 2024</p>
+    </div>
+</body>
+
+</html>

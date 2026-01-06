@@ -1,0 +1,304 @@
+/* Analytics Dashboard Styles */
+.analytics-dashboard {
+    padding: 24px;
+    background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+    min-height: 100vh;
+    color: #e2e8f0;
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.analytics-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.header-controls select,
+.header-controls button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.header-controls button {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+}
+
+.analytics-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.analytics-tabs button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #9ca3af;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.analytics-tabs button.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+}
+
+/* Predictions Section */
+.predictions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.prediction-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.prediction-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.prediction-type {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6366f1;
+    letter-spacing: 1px;
+}
+
+.confidence {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.prediction-card h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.probability-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.probability-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.factors h4,
+.recommendations h4 {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 12px;
+}
+
+.factor-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.factor-name {
+    width: 150px;
+    font-size: 13px;
+}
+
+.factor-impact {
+    width: 20px;
+    text-align: center;
+}
+
+.factor-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.factor-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.recommendations {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recommendations ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recommendations li {
+    padding: 8px 12px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+/* Forecast Section */
+.forecast-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.forecast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.forecast-header h2 {
+    font-size: 20px;
+}
+
+.horizon {
+    padding: 6px 12px;
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    font-size: 13px;
+    color: #a78bfa;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.metric-card h3 {
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #9ca3af;
+}
+
+.metric-values {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.metric-values .current {
+    font-size: 24px;
+    font-weight: 700;
+    color: #9ca3af;
+}
+
+.metric-values .arrow {
+    font-size: 18px;
+}
+
+.metric-values .forecast {
+    font-size: 24px;
+    font-weight: 700;
+    color: #6366f1;
+}
+
+.metric-card .confidence {
+    font-size: 12px;
+}
+
+.opportunities {
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid #22c55e;
+}
+
+.opportunities h3 {
+    margin-bottom: 12px;
+}
+
+.opportunities ul {
+    list-style: none;
+    padding: 0;
+}
+
+.opportunities li {
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.opportunities li::before {
+    content: '✨ ';
+}
+
+/* Trends Section */
+.trends-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.trend-chart-placeholder {
+    text-align: center;
+}
+
+.trend-chart-placeholder .emoji {
+    font-size: 64px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.trend-chart-placeholder small {
+    color: #6b7280;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px;
+}
+
+.empty-state .emoji {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+}

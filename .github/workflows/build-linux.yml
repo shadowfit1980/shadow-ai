@@ -1,0 +1,61 @@
+name: Build Linux Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Package for Linux (AppImage, deb, rpm)
+        run: npm run package:linux
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List release artifacts
+        run: |
+          echo "=== Release Directory Contents ==="
+          find release -type f \( -name "*.AppImage" -o -name "*.deb" -o -name "*.rpm" -o -name "*.snap" \) -exec ls -lh {} \;
+
+      - name: Upload AppImage
+        uses: actions/upload-artifact@v4
+        with:
+          name: Shadow-AI-Linux-AppImage
+          path: release/*.AppImage
+          if-no-files-found: warn
+
+      - name: Upload DEB package
+        uses: actions/upload-artifact@v4
+        with:
+          name: Shadow-AI-Linux-DEB
+          path: release/*.deb
+          if-no-files-found: warn
+
+      - name: Upload RPM package
+        uses: actions/upload-artifact@v4
+        with:
+          name: Shadow-AI-Linux-RPM
+          path: release/*.rpm
+          if-no-files-found: warn

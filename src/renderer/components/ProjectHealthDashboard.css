@@ -1,0 +1,281 @@
+/**
+ * Project Health Dashboard Styles
+ */
+
+.health-dashboard {
+    padding: 24px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 16px;
+    color: #e2e8f0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.health-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.health-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f8fafc;
+}
+
+.refresh-btn {
+    padding: 8px 16px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.refresh-btn:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.refresh-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Health Score Circle */
+.health-score-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.health-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 6px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.health-circle .score {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.health-circle .label {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #f8fafc;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    text-align: center;
+}
+
+/* Burnout Card */
+.burnout-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-left: 4px solid;
+}
+
+.burnout-card.normal {
+    border-left-color: #10b981;
+}
+
+.burnout-card.elevated {
+    border-left-color: #f59e0b;
+}
+
+.burnout-card.high {
+    border-left-color: #ef4444;
+}
+
+.burnout-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.125rem;
+}
+
+.burnout-level {
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.burnout-indicators,
+.burnout-recommendations ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.burnout-indicators li,
+.burnout-recommendations li {
+    margin: 4px 0;
+    opacity: 0.9;
+}
+
+/* Bottlenecks */
+.bottlenecks-card {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.bottlenecks-card h3 {
+    margin: 0 0 12px 0;
+    color: #fca5a5;
+}
+
+.bottlenecks-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.bottlenecks-card li {
+    margin: 8px 0;
+}
+
+/* Healing Section */
+.healing-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.healing-section h3 {
+    margin: 0 0 16px 0;
+}
+
+.heal-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.heal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.healing-result {
+    margin-top: 16px;
+    display: flex;
+    gap: 24px;
+    font-size: 0.875rem;
+}
+
+.healing-result p {
+    margin: 0;
+}
+
+/* Dependencies Section */
+.deps-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.deps-section h3 {
+    margin: 0 0 16px 0;
+}
+
+.deps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dep-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.dep-item.breaking {
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.dep-name {
+    font-weight: 600;
+    flex: 1;
+}
+
+.dep-version {
+    font-family: monospace;
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+.breaking-badge {
+    font-size: 0.75rem;
+    background: #ef4444;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .healing-result {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

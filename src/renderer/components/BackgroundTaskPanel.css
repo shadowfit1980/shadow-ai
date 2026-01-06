@@ -1,0 +1,226 @@
+/**
+ * Background Task Panel Styles
+ */
+
+.bg-task-panel {
+    background: var(--bg-secondary, #1c2128);
+    border: 1px solid var(--border-color, #30363d);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+}
+
+.bg-task-panel.minimized {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.bg-task-panel.minimized:hover {
+    background: var(--bg-tertiary, #22272e);
+}
+
+.mini-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.running-badge {
+    background: var(--accent-color, #58a6ff);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.queued-badge {
+    color: var(--text-secondary, #8b949e);
+    font-size: 12px;
+}
+
+.idle-badge {
+    color: var(--text-tertiary, #484f58);
+    font-size: 12px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color, #30363d);
+}
+
+.header-left h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+}
+
+.task-summary {
+    font-size: 12px;
+    color: var(--text-secondary, #8b949e);
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.clear-btn,
+.minimize-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary, #8b949e);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.clear-btn:hover,
+.minimize-btn:hover {
+    background: var(--bg-tertiary, #22272e);
+    color: var(--text-primary, #fff);
+}
+
+.worker-status {
+    padding: 8px 16px;
+    background: var(--bg-primary, #0d1117);
+    border-bottom: 1px solid var(--border-color, #30363d);
+}
+
+.workers-indicator {
+    font-size: 12px;
+    color: var(--text-tertiary, #484f58);
+}
+
+.task-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.empty-state {
+    padding: 32px;
+    text-align: center;
+    color: var(--text-tertiary, #484f58);
+    font-size: 13px;
+}
+
+.task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color, #30363d);
+    transition: background 0.15s ease;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item:hover {
+    background: var(--bg-tertiary, #22272e);
+}
+
+.task-item.running {
+    background: rgba(88, 166, 255, 0.05);
+}
+
+.task-item.failed {
+    background: rgba(248, 81, 73, 0.05);
+}
+
+.task-status {
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.status-icon {
+    font-size: 16px;
+}
+
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-description {
+    font-size: 13px;
+    color: var(--text-primary, #fff);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--text-tertiary, #484f58);
+}
+
+.task-type {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.task-duration {
+    font-feature-settings: "tnum";
+}
+
+.task-error {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--danger-color, #f85149);
+    background: rgba(248, 81, 73, 0.1);
+    padding: 6px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cancel-btn {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary, #8b949e);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s ease;
+}
+
+.cancel-btn:hover {
+    background: rgba(248, 81, 73, 0.2);
+    color: var(--danger-color, #f85149);
+}
+
+/* Scrollbar styling */
+.task-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: var(--border-color, #30363d);
+    border-radius: 4px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+    background: var(--text-tertiary, #484f58);
+}

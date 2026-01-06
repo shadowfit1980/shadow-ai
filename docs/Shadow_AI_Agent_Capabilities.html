@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Shadow AI Agent Capabilities</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Shadow AI Agent Capabilities</h1>
+</header>
+<h1 id="shadow-ai-agent---complete-capabilities-reference">Shadow AI
+Agent - Complete Capabilities Reference</h1>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Shadow AI is an <strong>advanced AI-powered coding assistant</strong>
+built on Electron with a multi-model architecture. It combines 15+
+specialized agents, 50+ services, and deep IDE integration to provide
+autonomous development capabilities across web, mobile, game, and
+desktop platforms.</p>
+<hr />
+<h2 id="architecture-overview">Architecture Overview</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                        SHADOW AI                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  RENDERER (React UI)                                             │
+│  ├── Chat Interface, Code Editor, Preview, Dashboards           │
+│  └── Real-time Streaming, Voice Control, Collaboration          │
+├─────────────────────────────────────────────────────────────────┤
+│  PRELOAD (IPC Bridge)                                            │
+│  └── 100+ API endpoints exposed to renderer                     │
+├─────────────────────────────────────────────────────────────────┤
+│  MAIN PROCESS                                                    │
+│  ├── AI Core: ModelManager, Orchestration, Reasoning            │
+│  ├── Agents: 15 Specialist Agents                               │
+│  ├── Services: 50+ Backend Services                             │
+│  └── Tools: 30+ Development Tools                               │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<hr />
+<h2 id="ai-model-support">AI Model Support</h2>
+<h3 id="supported-providers">Supported Providers</h3>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Models</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OpenAI</strong></td>
+<td>GPT-4, GPT-4 Turbo, GPT-4o, GPT-4o-mini</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>Anthropic</strong></td>
+<td>Claude 3.5 Sonnet, Claude 3 Opus/Haiku</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>Google</strong></td>
+<td>Gemini 1.5 Pro, Gemini 1.5 Flash</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>Ollama</strong></td>
+<td>Local models (Llama, Mistral, etc.)</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>OpenRouter</strong></td>
+<td>100+ models via API</td>
+<td>✅ Active</td>
+</tr>
+</tbody>
+</table>
+<h3 id="model-features">Model Features</h3>
+<ul>
+<li><strong>Multi-model routing</strong>: Automatic selection based on
+task</li>
+<li><strong>Ensemble execution</strong>: Combine multiple models for
+quality</li>
+<li><strong>Fallback chains</strong>: Graceful degradation on
+failures</li>
+<li><strong>Streaming responses</strong>: Real-time token updates</li>
+<li><strong>Cost tracking</strong>: Per-model usage metrics</li>
+</ul>
+<hr />
+<h2 id="specialist-agents">Specialist Agents</h2>
+<h3 id="core-development-agents">Core Development Agents</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 42%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Capabilities</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ArchitectAgent</strong></td>
+<td>System design, capacity planning, tech stack</td>
+<td>0.88-0.92</td>
+</tr>
+<tr>
+<td><strong>TestWriterAgent</strong></td>
+<td>Unit tests, integration tests, E2E</td>
+<td>0.85-0.90</td>
+</tr>
+<tr>
+<td><strong>SecurityAgent</strong></td>
+<td>Vulnerability scanning, code review</td>
+<td>0.85-0.88</td>
+</tr>
+<tr>
+<td><strong>PerformanceAgent</strong></td>
+<td>Optimization, profiling, benchmarking</td>
+<td>0.83-0.87</td>
+</tr>
+<tr>
+<td><strong>DocumentationAgent</strong></td>
+<td>API docs, READMEs, comments</td>
+<td>0.90-0.95</td>
+</tr>
+</tbody>
+</table>
+<h3 id="domain-specific-agents-new">Domain-Specific Agents (NEW)</h3>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 41%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Specialization</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MobileAgent</strong></td>
+<td>iOS/Android/RN/Flutter</td>
+<td>Platform detection, ASO, performance</td>
+</tr>
+<tr>
+<td><strong>GameAgent</strong></td>
+<td>Unity/Unreal/Godot</td>
+<td>Procedural generation, multiplayer</td>
+</tr>
+<tr>
+<td><strong>DesktopAgent</strong></td>
+<td>Electron/Tauri/Native</td>
+<td>Installers, native APIs, cross-platform</td>
+</tr>
+</tbody>
+</table>
+<h3 id="autonomous-agents">Autonomous Agents</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VisionAgent</strong></td>
+<td>Image/mockup to code conversion</td>
+</tr>
+<tr>
+<td><strong>RedTeamAgent</strong></td>
+<td>Adversarial security testing</td>
+</tr>
+<tr>
+<td><strong>GitAgent</strong></td>
+<td>Version control automation</td>
+</tr>
+<tr>
+<td><strong>TerminalAgent</strong></td>
+<td>Safe command execution</td>
+</tr>
+<tr>
+<td><strong>ProjectCreator</strong></td>
+<td>Full project scaffolding</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="core-services">Core Services</h2>
+<h3 id="intelligence-services">Intelligence Services</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TemporalContextEngine</strong></td>
+<td>Git history analysis, code archaeology</td>
+</tr>
+<tr>
+<td><strong>HiveMindService</strong></td>
+<td>Collective intelligence, pattern sharing</td>
+</tr>
+<tr>
+<td><strong>RealitySimulatorService</strong></td>
+<td>Chaos engineering, load testing</td>
+</tr>
+<tr>
+<td><strong>DeveloperMindMerge</strong></td>
+<td>Learn developer coding patterns</td>
+</tr>
+<tr>
+<td><strong>MCTSPlanner</strong></td>
+<td>Monte Carlo tree search planning</td>
+</tr>
+<tr>
+<td><strong>SelfEvolutionEngine</strong></td>
+<td>Self-improvement and learning</td>
+</tr>
+</tbody>
+</table>
+<h3 id="development-services">Development Services</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SemanticCodeSearch</strong></td>
+<td>Vector-based code search</td>
+</tr>
+<tr>
+<td><strong>ASTAnalyzer</strong></td>
+<td>Abstract syntax tree analysis</td>
+</tr>
+<tr>
+<td><strong>CodeExecutor</strong></td>
+<td>Safe JS/Python/Shell execution</td>
+</tr>
+<tr>
+<td><strong>AtomicEditor</strong></td>
+<td>Multi-file transactional editing</td>
+</tr>
+<tr>
+<td><strong>BrowserAutomation</strong></td>
+<td>Puppeteer-based web automation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="collaboration-services">Collaboration Services</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WebSocketManager</strong></td>
+<td>Real-time collaboration</td>
+</tr>
+<tr>
+<td><strong>CloudSyncProvider</strong></td>
+<td>Firebase/S3 sync</td>
+</tr>
+<tr>
+<td><strong>CollaborationService</strong></td>
+<td>Multi-user sessions</td>
+</tr>
+<tr>
+<td><strong>VoiceControl</strong></td>
+<td>Whisper transcription</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ui-components">UI Components</h2>
+<h3 id="main-interface">Main Interface</h3>
+<ul>
+<li><strong>ChatInterface</strong> - Conversational AI interaction</li>
+<li><strong>CodeEditor</strong> - Monaco-based code editing</li>
+<li><strong>PreviewArea</strong> - Live HTML/React preview</li>
+<li><strong>TerminalPanel</strong> - Integrated terminal</li>
+<li><strong>FileExplorer</strong> - Project navigation</li>
+</ul>
+<h3 id="dashboard-panels">Dashboard Panels</h3>
+<ul>
+<li><strong>AgenticDashboard</strong> - Task execution monitoring</li>
+<li><strong>TestingPanel</strong> - Test runner visualization</li>
+<li><strong>DomainAgentDashboard</strong> - Domain agent status</li>
+<li><strong>QuickActionsPanel</strong> - Floating quick actions</li>
+<li><strong>TeamPanel</strong> - Collaboration interface</li>
+</ul>
+<h3 id="advanced-features">Advanced Features</h3>
+<ul>
+<li><strong>VoiceControl</strong> - Voice command input</li>
+<li><strong>DesignStudio</strong> - UI generation tools</li>
+<li><strong>InfiniteCanvas</strong> - Visual workflow builder</li>
+</ul>
+<hr />
+<h2 id="ipc-api-reference">IPC API Reference</h2>
+<h3 id="model-management">Model Management</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="fu">listModels</span>()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="fu">selectModel</span>(modelId)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="fu">chat</span>(messages)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="fu">chatStream</span>(messages)</span></code></pre></div>
+<h3 id="agent-execution">Agent Execution</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">agentic</span><span class="op">.</span><span class="fu">executeTask</span>(description<span class="op">,</span> context)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">agentic</span><span class="op">.</span><span class="at">terminal</span><span class="op">.</span><span class="fu">execute</span>(command)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">agentic</span><span class="op">.</span><span class="at">git</span><span class="op">.</span><span class="fu">commit</span>(message)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">agentic</span><span class="op">.</span><span class="at">code</span><span class="op">.</span><span class="fu">execute</span>(code<span class="op">,</span> language)</span></code></pre></div>
+<h3 id="domain-agents">Domain Agents</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">mobile</span><span class="op">.</span><span class="fu">execute</span>(task)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">mobile</span><span class="op">.</span><span class="fu">detectPlatform</span>(task)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">game</span><span class="op">.</span><span class="fu">generateProcedural</span>(asset)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">desktop</span><span class="op">.</span><span class="fu">generateInstaller</span>(config)</span></code></pre></div>
+<h3 id="intelligence">Intelligence</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">temporal</span><span class="op">.</span><span class="fu">analyzeArchaeology</span>(filePath)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">hivemind</span><span class="op">.</span><span class="fu">learnPattern</span>(problem<span class="op">,</span> solution)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">simulator</span><span class="op">.</span><span class="fu">runLoadTest</span>(options)</span></code></pre></div>
+<h3 id="tools-utilities">Tools &amp; Utilities</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">testing</span><span class="op">.</span><span class="fu">generateFromCode</span>(code)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">security</span><span class="op">.</span><span class="fu">scan</span>(code)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">context</span><span class="op">.</span><span class="fu">indexProject</span>(path)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>shadowAPI<span class="op">.</span><span class="at">editing</span><span class="op">.</span><span class="fu">editFilesAtomically</span>(edits)</span></code></pre></div>
+<hr />
+<h2 id="development-opportunities">Development Opportunities</h2>
+<h3 id="high-priority-improvements">High-Priority Improvements</h3>
+<ol type="1">
+<li><strong>Enhanced VisionAgent</strong>
+<ul>
+<li>Figma direct integration</li>
+<li>Design system extraction</li>
+<li>Component library conversion</li>
+</ul></li>
+<li><strong>Real-time Collaboration</strong>
+<ul>
+<li>Multi-cursor editing</li>
+<li>Live code sharing</li>
+<li>Team presence</li>
+</ul></li>
+<li><strong>Performance Optimization</strong>
+<ul>
+<li>Code splitting for 691KB bundle</li>
+<li>Lazy loading of heavy components</li>
+<li>Memory usage optimization</li>
+</ul></li>
+</ol>
+<h3 id="feature-extensions">Feature Extensions</h3>
+<ol start="4" type="1">
+<li><strong>Additional Agents</strong>
+<ul>
+<li>DataScienceAgent (ML/AI development)</li>
+<li>DevOpsAgent (CI/CD, infrastructure)</li>
+<li>BlockchainAgent (Web3 development)</li>
+</ul></li>
+<li><strong>Enhanced Testing</strong>
+<ul>
+<li>Visual regression testing</li>
+<li>API contract testing</li>
+<li>Mutation testing</li>
+</ul></li>
+<li><strong>Documentation</strong>
+<ul>
+<li>Interactive API explorer</li>
+<li>Video tutorials</li>
+<li>Example projects</li>
+</ul></li>
+</ol>
+<h3 id="technical-debt">Technical Debt</h3>
+<ol start="7" type="1">
+<li><strong>Code Quality</strong>
+<ul>
+<li>Fix ESM/CommonJS issues in tests</li>
+<li>Add TypeScript strict mode</li>
+<li>Increase test coverage</li>
+</ul></li>
+<li><strong>Architecture</strong>
+<ul>
+<li>Modularize large files (preload.ts: 1470 lines)</li>
+<li>Extract common patterns</li>
+<li>Improve error handling</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="file-structure">File Structure</h2>
+<pre><code>shadow-ai/
+├── src/
+│   ├── main/
+│   │   ├── ai/
+│   │   │   ├── agents/         # 15+ specialist agents
+│   │   │   ├── agentic/        # Autonomous loop
+│   │   │   ├── analysis/       # Code analysis
+│   │   │   ├── context/        # Project understanding
+│   │   │   ├── memory/         # Vector store, embeddings
+│   │   │   ├── orchestration/  # Dispatcher, coordination
+│   │   │   ├── planning/       # MCTS, task planning
+│   │   │   ├── reasoning/      # Chain-of-thought
+│   │   │   ├── routing/        # Model selection
+│   │   │   └── tools/          # 30+ development tools
+│   │   ├── ipc/                # 50+ IPC handlers
+│   │   ├── services/           # Backend services
+│   │   ├── index.ts            # Main entry
+│   │   └── preload.ts          # Renderer bridge
+│   └── renderer/
+│       ├── components/         # React UI components
+│       ├── hooks/              # Custom React hooks
+│       ├── store.ts            # State management
+│       └── App.tsx             # Main React app
+├── docs/
+│   └── domain-agents-api.md    # API reference
+└── package.json</code></pre>
+<hr />
+<h2 id="quick-start-for-development">Quick Start for Development</h2>
+<h3 id="adding-a-new-agent">Adding a New Agent</h3>
+<ol type="1">
+<li>Create in <code>src/main/ai/agents/specialist/</code></li>
+<li>Extend <code>SpecialistAgent</code> base class</li>
+<li>Define <code>capabilities</code> array</li>
+<li>Implement <code>execute(task)</code> method</li>
+<li>Export in <code>index.ts</code></li>
+<li>Add IPC handler in <code>domainAgentHandlers.ts</code></li>
+<li>Expose in <code>preload.ts</code> and <code>shadowAPI.ts</code></li>
+</ol>
+<h3 id="adding-a-new-service">Adding a New Service</h3>
+<ol type="1">
+<li>Create in <code>src/main/services/</code></li>
+<li>Implement as singleton class</li>
+<li>Add IPC handlers for methods</li>
+<li>Create React hook in <code>src/renderer/hooks/</code></li>
+</ol>
+<h3 id="adding-ui-components">Adding UI Components</h3>
+<ol type="1">
+<li>Create <code>.tsx</code> and <code>.css</code> files</li>
+<li>Use existing hooks for API access</li>
+<li>Follow dark theme design patterns</li>
+<li>Export from component index</li>
+</ol>
+<hr />
+<h2 id="metrics">Metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Lines of Code</td>
+<td>~150,000+</td>
+</tr>
+<tr>
+<td>TypeScript Files</td>
+<td>~500</td>
+</tr>
+<tr>
+<td>React Components</td>
+<td>~100</td>
+</tr>
+<tr>
+<td>IPC Handlers</td>
+<td>100+</td>
+</tr>
+<tr>
+<td>Specialist Agents</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Services</td>
+<td>50+</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>30+</td>
+</tr>
+<tr>
+<td>React Hooks</td>
+<td>20+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="contact-resources">Contact &amp; Resources</h2>
+<ul>
+<li><strong>Codebase</strong>:
+<code>/Users/shadyawayda/Desktop/antigravity/shadow-ai</code></li>
+<li><strong>Docs</strong>: <code>/shadow-ai/docs/</code></li>
+<li><strong>Tests</strong>: <code>npm test</code></li>
+<li><strong>Build</strong>: <code>npm run build</code></li>
+<li><strong>Dev</strong>: <code>npm run dev</code></li>
+</ul>
+</body>
+</html>

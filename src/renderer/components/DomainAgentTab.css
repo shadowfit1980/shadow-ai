@@ -1,0 +1,215 @@
+/**
+ * DomainAgentTab Styles
+ */
+
+.domain-agent-tab {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+}
+
+.domain-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.domain-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.domain-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.domain-btn.active {
+    border-color: var(--accent-color);
+    background: rgba(var(--accent-color), 0.1);
+    color: #fff;
+}
+
+.domain-icon {
+    font-size: 1.5rem;
+}
+
+.domain-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.capabilities-count {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.task-input-section {
+    margin-bottom: 16px;
+}
+
+.input-header {
+    margin-bottom: 8px;
+}
+
+.domain-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-row input:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.input-row input:disabled {
+    opacity: 0.5;
+}
+
+.execute-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.execute-btn:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.execute-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quick-tasks {
+    margin-bottom: 16px;
+}
+
+.quick-tasks h4 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+}
+
+.quick-task-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.quick-task-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quick-task-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.task-icon {
+    font-size: 1.1rem;
+}
+
+.task-label {
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.result-display {
+    margin-bottom: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.result-display.success {
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.result-display.error {
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.result-header {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.result-display.success .result-header {
+    color: #4ade80;
+}
+
+.result-display.error .result-header {
+    color: #f87171;
+}
+
+.result-content {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    font-family: 'SF Mono', Monaco, monospace;
+    color: rgba(255, 255, 255, 0.7);
+    max-height: 150px;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.hivemind-stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.hivemind-stats .stat {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}

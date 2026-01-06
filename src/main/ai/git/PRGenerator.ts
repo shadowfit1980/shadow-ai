@@ -1,0 +1,306 @@
+/**
+ * PRGenerator - Automated Draft PR Creation
+ * 
+ * Creates feature branches and draft PRs with:
+ * - Generated code and tests
+ * - Reasoning logs and coverage reports
+ * - Human approval gate before merge
+ * - Automatic labeling and reviewer assignment
+ */
+
+import { EventEmitter } from 'events';
+import { GitHubIntegration, githubIntegration } from '../../services/GitHubIntegration';
+
+export interface PRGenerationRequest {
+    title: string;
+    description: string;
+    files: Array<{
+        path: string;
+        content: string;
+        description?: string;
+    }>;
+    baseBranch?: string;
+    labels?: string[];
+    reviewers?: string[];
+    testResults?: {
+        passed: number;
+        failed: number;
+        coverage?: number;
+    };
+    reasoningLog?: string;
+}
+
+export interface PRGenerationResult {
+    success: boolean;
+    branchName?: string;
+    prNumber?: number;
+    prUrl?: string;
+    error?: string;
+}
+
+export interface GeneratedPRContext {
+    model: string;
+    prompt: string;
+    generatedAt: string;
+    executionId?: string;
+    sandboxResults?: {
+        passed: boolean;
+        duration: number;
+        output: string;
+    };
+}
+
+export class PRGenerator extends EventEmitter {
+    private static instance: PRGenerator;
+    private github: GitHubIntegration;
+
+    private constructor() {
+        super();
+        this.github = githubIntegration;
+    }
+
+    static getInstance(): PRGenerator {
+        if (!PRGenerator.instance) {
+            PRGenerator.instance = new PRGenerator();
+        }
+        return PRGenerator.instance;
+    }
+
+    /**
+     * Generate a complete PR from Shadow AI output
+     */
+    async generatePR(request: PRGenerationRequest, context?: GeneratedPRContext): Promise<PRGenerationResult> {
+        if (!this.github.isConfigured()) {
+            return {
+                success: false,
+                error: 'GitHub not configured. Please add your GitHub token in Settings.'
+            };
+        }
+
+        try {
+            // 1. Generate branch name
+            const branchName = this.generateBranchName(request.title);
+            console.log(`[PRGenerator] Creating branch: ${branchName}`);
+
+            // 2. Create feature branch
+            await this.github.createBranch(branchName, request.baseBranch || 'main');
+            this.emit('branch:created', branchName);
+
+            // 3. Commit files
+            const commitMessage = this.generateCommitMessage(request, context);
+            await this.github.createCommit({
+                message: commitMessage,
+                files: request.files.map(f => ({
+                    path: f.path,
+                    content: f.content
+                })),
+                branch: branchName
+            });
+            this.emit('commit:created', branchName);
+
+            // 4. Create draft PR
+            const prBody = this.generatePRBody(request, context);
+            const pr = await this.github.createPR({
+                title: `🤖 ${request.title}`,
+                body: prBody,
+                head: branchName,
+                base: request.baseBranch || 'main',
+                draft: true,
+                labels: [...(request.labels || []), 'ai-generated', 'needs-review'],
+                reviewers: request.reviewers
+            });
+
+            this.emit('pr:created', pr);
+            console.log(`[PRGenerator] Created PR #${pr.number}: ${pr.htmlUrl}`);
+
+            return {
+                success: true,
+                branchName,
+                prNumber: pr.number,
+                prUrl: pr.htmlUrl
+            };
+
+        } catch (error) {
+            const message = (error as Error).message;
+            console.error('[PRGenerator] Failed:', message);
+
+            return {
+                success: false,
+                error: message
+            };
+        }
+    }
+
+    /**
+     * Generate a clean branch name from title
+     */
+    private generateBranchName(title: string): string {
+        const slug = title
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .substring(0, 50);
+
+        const timestamp = Date.now().toString(36);
+        return `shadow-ai/${slug}-${timestamp}`;
+    }
+
+    /**
+     * Generate commit message with context
+     */
+    private generateCommitMessage(
+        request: PRGenerationRequest,
+        context?: GeneratedPRContext
+    ): string {
+        let message = `feat: ${request.title}\n\n`;
+        message += `${request.description}\n\n`;
+
+        message += `Files changed:\n`;
+        for (const file of request.files) {
+            message += `- ${file.path}`;
+            if (file.description) {
+                message += ` - ${file.description}`;
+            }
+            message += '\n';
+        }
+
+        if (context) {
+            message += `\n---\n`;
+            message += `Generated by Shadow AI\n`;
+            message += `Model: ${context.model}\n`;
+            message += `Generated at: ${context.generatedAt}\n`;
+        }
+
+        return message;
+    }
+
+    /**
+     * Generate comprehensive PR body
+     */
+    private generatePRBody(
+        request: PRGenerationRequest,
+        context?: GeneratedPRContext
+    ): string {
+        let body = `## 🤖 AI-Generated Pull Request\n\n`;
+        body += `**This PR was automatically generated by Shadow AI and requires human review before merging.**\n\n`;
+
+        body += `## Description\n\n`;
+        body += `${request.description}\n\n`;
+
+        body += `## Changes\n\n`;
+        for (const file of request.files) {
+            const ext = file.path.split('.').pop() || 'txt';
+            body += `### \`${file.path}\`\n`;
+            if (file.description) {
+                body += `${file.description}\n`;
+            }
+            body += `\n\`\`\`${ext}\n${file.content.substring(0, 500)}${file.content.length > 500 ? '\n... (truncated)' : ''}\n\`\`\`\n\n`;
+        }
+
+        if (request.testResults) {
+            body += `## Test Results\n\n`;
+            body += `| Metric | Value |\n`;
+            body += `|--------|-------|\n`;
+            body += `| ✅ Passed | ${request.testResults.passed} |\n`;
+            body += `| ❌ Failed | ${request.testResults.failed} |\n`;
+            if (request.testResults.coverage !== undefined) {
+                body += `| 📊 Coverage | ${request.testResults.coverage}% |\n`;
+            }
+            body += `\n`;
+        }
+
+        if (context?.sandboxResults) {
+            body += `## Sandbox Validation\n\n`;
+            body += `- Status: ${context.sandboxResults.passed ? '✅ Passed' : '❌ Failed'}\n`;
+            body += `- Duration: ${context.sandboxResults.duration}ms\n`;
+            if (context.sandboxResults.output) {
+                body += `- Output:\n\`\`\`\n${context.sandboxResults.output.substring(0, 300)}\n\`\`\`\n`;
+            }
+            body += `\n`;
+        }
+
+        if (request.reasoningLog) {
+            body += `## AI Reasoning\n\n`;
+            body += `<details>\n<summary>Click to expand reasoning log</summary>\n\n`;
+            body += `\`\`\`\n${request.reasoningLog}\n\`\`\`\n`;
+            body += `</details>\n\n`;
+        }
+
+        if (context) {
+            body += `## Generation Context\n\n`;
+            body += `| Property | Value |\n`;
+            body += `|----------|-------|\n`;
+            body += `| Model | ${context.model} |\n`;
+            body += `| Generated | ${context.generatedAt} |\n`;
+            if (context.executionId) {
+                body += `| Execution ID | \`${context.executionId}\` |\n`;
+            }
+            body += `\n`;
+        }
+
+        body += `---\n\n`;
+        body += `> ⚠️ **Review Checklist:**\n`;
+        body += `> - [ ] Code follows project conventions\n`;
+        body += `> - [ ] Tests are comprehensive and passing\n`;
+        body += `> - [ ] No security vulnerabilities introduced\n`;
+        body += `> - [ ] Documentation is updated if needed\n`;
+        body += `> - [ ] Human has verified the changes are correct\n`;
+
+        return body;
+    }
+
+    /**
+     * Create PR from an autonomous workflow result
+     */
+    async createFromWorkflowResult(
+        workflowId: string,
+        result: {
+            title: string;
+            description: string;
+            generatedCode: string;
+            generatedTests?: string;
+            model: string;
+            reasoningLog?: string;
+            testResults?: {
+                passed: number;
+                failed: number;
+                coverage?: number;
+            };
+        }
+    ): Promise<PRGenerationResult> {
+        const files: PRGenerationRequest['files'] = [
+            {
+                path: 'src/generated/implementation.ts',
+                content: result.generatedCode,
+                description: 'Generated implementation'
+            }
+        ];
+
+        if (result.generatedTests) {
+            files.push({
+                path: 'src/generated/implementation.test.ts',
+                content: result.generatedTests,
+                description: 'Generated tests'
+            });
+        }
+
+        return this.generatePR(
+            {
+                title: result.title,
+                description: result.description,
+                files,
+                testResults: result.testResults,
+                reasoningLog: result.reasoningLog,
+                labels: ['workflow-generated']
+            },
+            {
+                model: result.model,
+                prompt: result.description,
+                generatedAt: new Date().toISOString(),
+                executionId: workflowId
+            }
+        );
+    }
+}
+
+export const prGenerator = PRGenerator.getInstance();

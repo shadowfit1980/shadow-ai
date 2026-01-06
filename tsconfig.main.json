@@ -1,0 +1,23 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "outDir": "./dist/main",
+        "skipLibCheck": true,
+        "noEmitOnError": false,
+        "strict": false,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "strictPropertyInitialization": false
+    },
+    "include": [
+        "src/main/**/*",
+        "src/shared/**/*"
+    ],
+    "exclude": [
+        "src/main/**/__tests__/**",
+        "src/main/**/*.test.ts",
+        "src/main/**/*.spec.ts"
+    ]
+}

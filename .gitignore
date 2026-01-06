@@ -1,0 +1,67 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+release/
+out/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Electron
+*.asar
+
+# Local AI models (optional, can be large)
+models/
+*.gguf
+*.bin
+
+# User data
+user-data/
+knowledge-base.db
+evolution-log.json
+
+# Transpiled files - TypeScript should only output to dist/
+src/**/*.js
+src/**/*.js.map
+!src/**/*.test.js
+!src/**/*.spec.js
+vite.config.js
+
+# macOS resource forks
+._*
+.DS_Store
+

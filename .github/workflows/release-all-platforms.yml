@@ -1,0 +1,191 @@
+name: Release All Platforms
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create GitHub Release'
+        required: false
+        default: 'true'
+        type: boolean
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  # ============================================
+  # Windows Build
+  # ============================================
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and Package for Windows
+        run: npm run package:win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Windows artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-builds
+          path: |
+            release/*.exe
+            release/win-unpacked/
+          if-no-files-found: warn
+
+  # ============================================
+  # macOS Build
+  # ============================================
+  build-macos:
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and Package for macOS
+        run: npm run package:mac
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-builds
+          path: |
+            release/*.dmg
+            release/*.zip
+          if-no-files-found: warn
+
+  # ============================================
+  # Linux Build
+  # ============================================
+  build-linux:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and Package for Linux
+        run: npm run package:linux
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-builds
+          path: |
+            release/*.AppImage
+            release/*.deb
+            release/*.rpm
+          if-no-files-found: warn
+
+  # ============================================
+  # Create GitHub Release
+  # ============================================
+  create-release:
+    needs: [build-windows, build-macos, build-linux]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v') || github.event.inputs.create_release == 'true'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Display downloaded artifacts
+        run: |
+          echo "=== All Downloaded Artifacts ==="
+          find artifacts -type f \( -name "*.exe" -o -name "*.dmg" -o -name "*.zip" -o -name "*.AppImage" -o -name "*.deb" -o -name "*.rpm" \) -exec ls -lh {} \;
+
+      - name: Get version from tag
+        id: version
+        run: |
+          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=v$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.VERSION }}
+          name: Shadow AI ${{ steps.version.outputs.VERSION }}
+          body: |
+            ## 🚀 Shadow AI ${{ steps.version.outputs.VERSION }}
+            
+            ### Downloads
+            
+            | Platform | Download |
+            |----------|----------|
+            | **Windows (64-bit)** | `Shadow AI Setup x.x.x.exe` |
+            | **Windows Portable** | `Shadow AI x.x.x.exe` (portable) |
+            | **macOS (Apple Silicon)** | `Shadow AI-x.x.x-arm64.dmg` |
+            | **macOS (Intel)** | `Shadow AI-x.x.x-x64.dmg` |
+            | **Linux (AppImage)** | `Shadow AI-x.x.x.AppImage` |
+            | **Linux (Debian/Ubuntu)** | `shadow-ai_x.x.x_amd64.deb` |
+            | **Linux (Fedora/RHEL)** | `shadow-ai-x.x.x.x86_64.rpm` |
+            
+            ### Installation
+            
+            **Windows**: Download and run the Setup installer, or use the portable version.
+            
+            **macOS**: Download the DMG, open it, and drag Shadow AI to Applications.
+            
+            **Linux**: Download the AppImage and make it executable, or install the .deb/.rpm package.
+            
+            ---
+            
+            See [CHANGELOG](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for details.
+          files: |
+            artifacts/**/*.exe
+            artifacts/**/*.dmg
+            artifacts/**/*.zip
+            artifacts/**/*.AppImage
+            artifacts/**/*.deb
+            artifacts/**/*.rpm
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

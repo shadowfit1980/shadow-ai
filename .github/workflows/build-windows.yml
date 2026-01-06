@@ -1,0 +1,95 @@
+name: Build Windows Installer
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v3.0.0)'
+        required: false
+        default: ''
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Package for Windows (NSIS Installer + Portable)
+        run: npm run package:win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List release artifacts
+        run: |
+          Write-Host "=== Release Directory Contents ===" 
+          Get-ChildItem -Path release -Recurse -File | Where-Object { $_.Extension -in '.exe', '.zip', '.7z' } | ForEach-Object {
+            Write-Host "$($_.FullName) - $([math]::Round($_.Length / 1MB, 2)) MB"
+          }
+
+      - name: Upload NSIS Installer (x64)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Shadow-AI-Windows-x64-Setup
+          path: release/*Setup*.exe
+          if-no-files-found: warn
+
+      - name: Upload Portable (x64)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Shadow-AI-Windows-x64-Portable
+          path: release/win-unpacked/
+          if-no-files-found: warn
+
+      - name: Upload NSIS Installer (ia32)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Shadow-AI-Windows-ia32-Setup
+          path: release/*ia32*.exe
+          if-no-files-found: warn
+
+  # Optional: Create GitHub Release with artifacts
+  release:
+    needs: build-windows
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Display downloaded artifacts
+        run: ls -laR artifacts/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            artifacts/**/*.exe
+            artifacts/**/*.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

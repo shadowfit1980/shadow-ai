@@ -1,0 +1,271 @@
+/**
+ * DomainAgentDashboard Styles
+ */
+
+.domain-dashboard {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 12px;
+    padding: 24px;
+    color: #fff;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.tab-buttons button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-buttons button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-buttons button.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Agents Grid */
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.agent-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.agent-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+}
+
+.agent-card.ready {
+    border-left: 3px solid #4ade80;
+}
+
+.agent-card.busy {
+    border-left: 3px solid #fbbf24;
+}
+
+.agent-card.error {
+    border-left: 3px solid #f87171;
+}
+
+.agent-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.agent-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+}
+
+.agent-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.status.ready {
+    color: #4ade80;
+}
+
+.status.busy {
+    color: #fbbf24;
+}
+
+.status.error {
+    color: #f87171;
+}
+
+/* Stats Row */
+.stats-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.stat .label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+/* Query Section */
+.query-section {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.query-section input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: #fff;
+    outline: none;
+}
+
+.query-section input:focus {
+    border-color: #667eea;
+}
+
+.query-section button,
+.test-config button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.query-section button:hover,
+.test-config button:hover {
+    opacity: 0.9;
+}
+
+/* Results */
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.result-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+}
+
+.result-item .relevance {
+    font-weight: 600;
+    color: #4ade80;
+    min-width: 40px;
+}
+
+.result-item .solution {
+    flex: 1;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Test Config */
+.test-config {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.test-config h4 {
+    margin: 0 0 16px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.config-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.config-row label {
+    min-width: 80px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.config-row input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #fff;
+    outline: none;
+}
+
+.config-row input:focus {
+    border-color: #667eea;
+}
+
+/* Test Results */
+.test-result {
+    margin-top: 16px;
+    padding: 16px;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 8px;
+}
+
+.test-result h4 {
+    margin: 0 0 12px 0;
+    color: #4ade80;
+}
+
+.test-result .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.85rem;
+}
+
+.test-result .metrics span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+}

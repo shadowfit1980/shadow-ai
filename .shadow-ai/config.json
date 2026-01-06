@@ -1,0 +1,9 @@
+{
+  "apiKeys": {
+    "gemini": "AIzaSyDrspFjr7NcWX9mRP515ik8iaR20Gn3Tfo"
+  },
+  "defaultModel": "gemini-pro",
+  "settings": {
+    "autoSelectModel": true
+  }
+}

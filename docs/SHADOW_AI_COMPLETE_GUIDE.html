@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow AI Agent - Complete Feature Guide</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: #1a1a2e;
+      background: #ffffff;
+      font-size: 11pt;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    /* Cover Page */
+    .cover {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: white;
+      page-break-after: always;
+      margin: -40px;
+      padding: 40px;
+    }
+
+    .cover h1 {
+      font-size: 48pt;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #00d9ff, #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover .subtitle {
+      font-size: 18pt;
+      color: #a0a0c0;
+      margin-bottom: 40px;
+    }
+
+    .cover .version {
+      font-size: 14pt;
+      color: #60a5fa;
+      margin-bottom: 60px;
+    }
+
+    .cover .meta {
+      font-size: 10pt;
+      color: #8888aa;
+    }
+
+    /* Section Headers */
+    h1 {
+      font-size: 24pt;
+      color: #1a1a2e;
+      margin: 40px 0 20px 0;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #3b82f6;
+    }
+
+    h2 {
+      font-size: 16pt;
+      color: #16213e;
+      margin: 30px 0 15px 0;
+    }
+
+    h3 {
+      font-size: 13pt;
+      color: #0f3460;
+      margin: 20px 0 10px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 10pt;
+    }
+
+    th {
+      background: #1a1a2e;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Feature Cards */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .feature-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 15px;
+      page-break-inside: avoid;
+    }
+
+    .feature-card h4 {
+      font-size: 11pt;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 9pt;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* Code Blocks */
+    code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 9pt;
+    }
+
+    pre {
+      background: #1a1a2e;
+      color: #e2e8f0;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 9pt;
+      margin: 15px 0;
+    }
+
+    /* Lists */
+    ul,
+    ol {
+      margin: 10px 0 15px 25px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Callouts */
+    .callout {
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      page-break-inside: avoid;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .callout-success {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+    }
+
+    .callout-warning {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+    }
+
+    /* Page Breaks */
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* TOC */
+    .toc {
+      background: #f8fafc;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .toc h2 {
+      margin-top: 0;
+    }
+
+    .toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .toc li {
+      padding: 8px 0;
+      border-bottom: 1px dotted #e5e7eb;
+    }
+
+    .toc a {
+      color: #1a1a2e;
+      text-decoration: none;
+    }
+
+    /* Status Badges */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 9pt;
+      font-weight: 500;
+    }
+
+    .badge-complete {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-partial {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-new {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        font-size: 10pt;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .cover {
+        margin: -20px;
+        padding: 20px;
+      }
+
+      .no-print {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Cover Page -->
+    <div class="cover">
+      <h1>🤖 Shadow AI</h1>
+      <p class="subtitle">Autonomous AI-Powered Coding Agent</p>
+      <p class="version">Version 4.0 — Queen 3 Max Edition</p>
+      <p class="meta">
+        Complete Feature Guide & Development Reference<br>
+        December 2024
+      </p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <h2>📑 Table of Contents</h2>
+      <ul>
+        <li>1. Executive Overview</li>
+        <li>2. Architecture & Technology Stack</li>
+        <li>3. Queen 3 Max Systems (10 Core Systems)</li>
+        <li>4. User Interface Components</li>
+        <li>5. Slash Commands Reference</li>
+        <li>6. AI Personality Engine</li>
+        <li>7. Plugin Ecosystem</li>
+        <li>8. Deployment Capabilities</li>
+        <li>9. Testing Framework</li>
+        <li>10. API Reference</li>
+        <li>11. Development & Extension Guide</li>
+        <li>12. Future Enhancement Opportunities</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: Executive Overview -->
+    <h1>1. Executive Overview</h1>
+
+    <h2>1.1 What is Shadow AI?</h2>
+    <p>
+      Shadow AI is an <strong>autonomous AI-powered coding agent</strong> built on Electron that transforms
+      natural language instructions into executable code. Unlike traditional code assistants that merely suggest
+      completions, Shadow AI takes an <strong>action-first approach</strong> — it understands your intent and
+      directly generates, modifies, builds, and deploys applications.
+    </p>
+
+    <h2>1.2 Core Philosophy</h2>
+    <table>
+      <tr>
+        <th>Principle</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><strong>Action-First</strong></td>
+        <td>Prioritizes code generation and execution over conversation</td>
+      </tr>
+      <tr>
+        <td><strong>Full-Stack</strong></td>
+        <td>Supports web, mobile, desktop, game, and containerized applications</td>
+      </tr>
+      <tr>
+        <td><strong>Autonomous</strong></td>
+        <td>Uses AI agent swarms to analyze, plan, and execute complex tasks</td>
+      </tr>
+      <tr>
+        <td><strong>Extensible</strong></td>
+        <td>Plugin architecture with sandboxed execution and community marketplace</td>
+      </tr>
+    </table>
+
+    <h2>1.3 Key Statistics</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>1,028+</h4>
+        <p>AI Subsystem Directories</p>
+      </div>
+      <div class="feature-card">
+        <h4>602</h4>
+        <p>Service Files</p>
+      </div>
+      <div class="feature-card">
+        <h4>64+</h4>
+        <p>IPC Handlers</p>
+      </div>
+      <div class="feature-card">
+        <h4>25+</h4>
+        <p>Deployment Targets</p>
+      </div>
+    </div>
+
+    <!-- Section 2: Architecture -->
+    <h1 class="page-break">2. Architecture & Technology Stack</h1>
+
+    <h2>2.1 Technology Stack</h2>
+    <table>
+      <tr>
+        <th>Layer</th>
+        <th>Technology</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>Frontend</td>
+        <td>React + TypeScript</td>
+        <td>User interface components</td>
+      </tr>
+      <tr>
+        <td>Styling</td>
+        <td>CSS + Tailwind</td>
+        <td>Modern, responsive design</td>
+      </tr>
+      <tr>
+        <td>Desktop</td>
+        <td>Electron</td>
+        <td>Cross-platform desktop application</td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td>Zustand</td>
+        <td>Global state management</td>
+      </tr>
+      <tr>
+        <td>AI Providers</td>
+        <td>OpenAI, Anthropic, Gemini, Ollama</td>
+        <td>Language model APIs</td>
+      </tr>
+      <tr>
+        <td>Build</td>
+        <td>Vite</td>
+        <td>Fast development & bundling</td>
+      </tr>
+      <tr>
+        <td>Testing</td>
+        <td>Jest + Playwright</td>
+        <td>Unit, integration, E2E tests</td>
+      </tr>
+    </table>
+
+    <h2>2.2 Process Architecture</h2>
+    <pre>
+┌─────────────────────────────────────────────────────────────────┐
+│                         MAIN PROCESS                              │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │ IPC Handlers │  │ AI Systems   │  │   Services   │           │
+│  │  (64+ APIs)  │  │  (1028 dirs) │  │  (602 files) │           │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
+│                           ▲                                       │
+│                           │ IPC Bridge                            │
+│                           ▼                                       │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                      preload.ts                              │ │
+│  │      (Secure API exposure via contextBridge)                 │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+                            ▲
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      RENDERER PROCESS                            │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │   React UI   │  │  Components  │  │    Panels    │           │
+│  │   (App.tsx)  │  │   (81 files) │  │  (Dashboard) │           │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
+└─────────────────────────────────────────────────────────────────┘
+        </pre>
+
+    <!-- Section 3: Queen 3 Max Systems -->
+    <h1 class="page-break">3. Queen 3 Max Systems</h1>
+
+    <p>
+      The Queen 3 Max enhancement suite introduces 10 revolutionary AI systems that transform
+      Shadow AI into a comprehensive development platform.
+    </p>
+
+    <h2>3.1 System Overview</h2>
+    <table>
+      <tr>
+        <th>#</th>
+        <th>System</th>
+        <th>Purpose</th>
+        <th>Lines</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>🏛️ ConversationalArchitect</td>
+        <td>Natural language project genesis with interactive planning</td>
+        <td>~700</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>🎮 GameEngineIntegration</td>
+        <td>Unity, Unreal, and Godot deep integration</td>
+        <td>~600</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>🎭 AIPersonalityEngine</td>
+        <td>5 distinct AI personas with stress detection</td>
+        <td>~600</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>🧪 TestSuiteGenerator</td>
+        <td>Auto test generation + chaos engineering</td>
+        <td>~600</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>🚀 DeploymentOrchestrator</td>
+        <td>25+ deployment targets with one-click deploy</td>
+        <td>~600</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>🔮 WhatIfSimulator</td>
+        <td>Migration scenario planning and impact analysis</td>
+        <td>~500</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>👥 CollaborationEngine</td>
+        <td>CRDT-based real-time multi-user editing</td>
+        <td>~650</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>💊 ProjectHealthDashboard</td>
+        <td>Predictive health monitoring with auto-fix</td>
+        <td>~650</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>🎨 MultiModalInput</td>
+        <td>Sketch to code, voice commands, Figma import</td>
+        <td>~650</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>🔌 PluginEcosystem</td>
+        <td>Sandboxed marketplace with versioning</td>
+        <td>~650</td>
+      </tr>
+    </table>
+
+    <h2>3.2 Detailed System Descriptions</h2>
+
+    <h3>🏛️ ConversationalArchitect</h3>
+    <p>
+      Enables natural language project creation through conversational interaction. Users describe
+      their project vision, and the system intelligently asks clarifying questions, suggests tech
+      stacks, and generates complete project scaffolds.
+    </p>
+    <div class="callout callout-info">
+      <strong>Key Features:</strong> Tech stack recommendations, dependency analysis,
+      project templating, interactive refinement, scaffold generation
+    </div>
+
+    <h3>🎮 GameEngineIntegration</h3>
+    <p>
+      Deep integration with major game engines including Unity (C#), Unreal Engine (C++/Blueprints),
+      and Godot (GDScript). Generates complete game scripts, shaders, and asset configurations.
+    </p>
+    <div class="callout callout-info">
+      <strong>Supported Engines:</strong> Unity 2022+, Unreal Engine 5, Godot 4.x
+    </div>
+
+    <h3>🎭 AIPersonalityEngine</h3>
+    <p>
+      Configures AI behavior with 5 distinct personalities, each with unique communication styles,
+      code preferences, and interaction patterns. Includes real-time stress detection to adapt
+      responses based on user behavior.
+    </p>
+
+    <h3>🧪 TestSuiteGenerator</h3>
+    <p>
+      Automatically generates comprehensive test suites including unit tests, integration tests,
+      and property-based tests. Features chaos engineering simulations for resilience testing.
+    </p>
+
+    <h3>🚀 DeploymentOrchestrator</h3>
+    <p>
+      One-click deployment to 25+ platforms across web, mobile, desktop, serverless, and container
+      targets. Handles build optimization, environment configuration, and deployment monitoring.
+    </p>
+
+    <h3>🔮 WhatIfSimulator</h3>
+    <p>
+      Analyzes hypothetical scenarios like framework migrations, architecture changes, or dependency
+      updates. Provides impact analysis, effort estimation, and migration script generation.
+    </p>
+
+    <h3>👥 CollaborationEngine</h3>
+    <p>
+      Real-time collaborative editing using CRDT (Conflict-free Replicated Data Types). Features
+      cursor tracking, voice messages, AI-powered conflict resolution, and change summaries.
+    </p>
+
+    <h3>💊 ProjectHealthDashboard</h3>
+    <p>
+      Continuous project health monitoring analyzing architecture, code quality, dependencies,
+      and technical debt. Provides actionable recommendations with auto-fix capabilities.
+    </p>
+
+    <h3>🎨 MultiModalInput</h3>
+    <p>
+      Supports multiple input modalities including sketch-to-code (wireframes to React), voice
+      commands (Whisper integration), and Figma design imports.
+    </p>
+
+    <h3>🔌 PluginEcosystem</h3>
+    <p>
+      Community-driven plugin marketplace with sandboxed execution, version management, ratings
+      system, and plugin development SDK.
+    </p>
+
+    <!-- Section 4: UI Components -->
+    <h1 class="page-break">4. User Interface Components</h1>
+
+    <h2>4.1 MasterDashboard</h2>
+    <p>
+      The unified control center with 9 tabs providing access to all Queen 3 Max capabilities:
+    </p>
+    <table>
+      <tr>
+        <th>Tab</th>
+        <th>Component</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>📊 Overview</td>
+        <td>Stats Grid</td>
+        <td>Health, plugins, personality at a glance</td>
+      </tr>
+      <tr>
+        <td>💊 Health</td>
+        <td>ProjectHealthPanel</td>
+        <td>Architecture analysis, tech debt, auto-fix</td>
+      </tr>
+      <tr>
+        <td>🔌 Plugins</td>
+        <td>PluginMarketplace</td>
+        <td>Search, install, manage plugins</td>
+      </tr>
+      <tr>
+        <td>🎭 AI Persona</td>
+        <td>PersonalitySelector</td>
+        <td>Switch AI personalities, view stress</td>
+      </tr>
+      <tr>
+        <td>🐝 Agent Swarm</td>
+        <td>AgentSwarmVisualization</td>
+        <td>Real-time agent network visualization</td>
+      </tr>
+      <tr>
+        <td>🎤 Voice</td>
+        <td>VoiceFirstInterface</td>
+        <td>Speech-to-code interface</td>
+      </tr>
+      <tr>
+        <td>🎨 Multi-Modal</td>
+        <td>Built-in</td>
+        <td>Sketch/Figma import controls</td>
+      </tr>
+      <tr>
+        <td>🚀 Deploy</td>
+        <td>Built-in</td>
+        <td>25+ deployment targets</td>
+      </tr>
+      <tr>
+        <td>👥 Collaborate</td>
+        <td>Built-in</td>
+        <td>Session creation/joining</td>
+      </tr>
+    </table>
+
+    <h2>4.2 Component Directory Structure</h2>
+    <pre>
+src/renderer/components/
+├── dashboard/
+│   └── MasterDashboard.tsx    (~610 lines)
+├── health/
+│   └── ProjectHealthPanel.tsx (~350 lines)
+├── plugins/
+│   └── PluginMarketplace.tsx  (~520 lines)
+├── personality/
+│   └── PersonalitySelector.tsx(~365 lines)
+├── swarm/
+│   └── AgentSwarmVisualization.tsx (~500 lines)
+├── voice/
+│   └── VoiceFirstInterface.tsx (~450 lines)
+└── ... (81 total component files)
+        </pre>
+
+    <!-- Section 5: Slash Commands -->
+    <h1 class="page-break">5. Slash Commands Reference</h1>
+
+    <h2>5.1 Project Creation</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td><code>/create [desc]</code></td>
+        <td>Create new project from description</td>
+        <td><code>/create todo app with React</code></td>
+      </tr>
+      <tr>
+        <td><code>/build [desc]</code></td>
+        <td>Build application from scratch</td>
+        <td><code>/build calculator</code></td>
+      </tr>
+      <tr>
+        <td><code>/code [task]</code></td>
+        <td>Generate specific code</td>
+        <td><code>/code merge sort algorithm</code></td>
+      </tr>
+    </table>
+
+    <h2>5.2 Export & Build</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td><code>/export</code></td>
+        <td>Export code to file</td>
+        <td>HTML/JS files</td>
+      </tr>
+      <tr>
+        <td><code>/apk</code></td>
+        <td>Build Android APK</td>
+        <td>.apk file</td>
+      </tr>
+      <tr>
+        <td><code>/exe</code></td>
+        <td>Build Windows executable</td>
+        <td>.exe file</td>
+      </tr>
+    </table>
+
+    <h2>5.3 Docker Commands</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>/docker build</code></td>
+        <td>Build Docker image from project</td>
+      </tr>
+      <tr>
+        <td><code>/docker run [name]</code></td>
+        <td>Run container from image</td>
+      </tr>
+      <tr>
+        <td><code>/docker status</code></td>
+        <td>Check running containers</td>
+      </tr>
+    </table>
+
+    <h2>5.4 Flutter Commands</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>/flutter create [name]</code></td>
+        <td>Create new Flutter project</td>
+      </tr>
+      <tr>
+        <td><code>/flutter run</code></td>
+        <td>Run Flutter app</td>
+      </tr>
+      <tr>
+        <td><code>/flutter build [platform]</code></td>
+        <td>Build for iOS/Android/Web</td>
+      </tr>
+    </table>
+
+    <h2>5.5 Advanced Commands</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>/swarm [task]</code></td>
+        <td>Dispatch task to AI agent swarm</td>
+      </tr>
+      <tr>
+        <td><code>/sandbox [command]</code></td>
+        <td>Execute command in sandbox</td>
+      </tr>
+      <tr>
+        <td><code>/inspect</code></td>
+        <td>Runtime variable inspection</td>
+      </tr>
+      <tr>
+        <td><code>/search [query]</code></td>
+        <td>Semantic code search</td>
+      </tr>
+    </table>
+
+    <!-- Section 6: AI Personality Engine -->
+    <h1 class="page-break">6. AI Personality Engine</h1>
+
+    <h2>6.1 Available Personalities</h2>
+    <table>
+      <tr>
+        <th>Persona</th>
+        <th>Style</th>
+        <th>Best For</th>
+        <th>Code Style</th>
+      </tr>
+      <tr>
+        <td>🎯 <strong>Ruth</strong></td>
+        <td>Direct, Senior, Emphatic</td>
+        <td>Production code, code reviews</td>
+        <td>2 spaces, semicolons, single quotes</td>
+      </tr>
+      <tr>
+        <td>🚀 <strong>Max</strong></td>
+        <td>Enthusiastic, Casual, Emoji</td>
+        <td>Prototypes, experiments</td>
+        <td>4 spaces, no semicolons, single quotes</td>
+      </tr>
+      <tr>
+        <td>📐 <strong>Ada</strong></td>
+        <td>Formal, Precise, Minimal</td>
+        <td>Enterprise, documentation</td>
+        <td>Tabs, semicolons, double quotes</td>
+      </tr>
+      <tr>
+        <td>💡 <strong>Nova</strong></td>
+        <td>Creative, Medium, Experimental</td>
+        <td>UI/UX, design systems</td>
+        <td>2 spaces, no semicolons, template literals</td>
+      </tr>
+      <tr>
+        <td>🧘 <strong>Zen</strong></td>
+        <td>Calm, Essential, Peaceful</td>
+        <td>Debugging, refactoring</td>
+        <td>2 spaces, optional semicolons, single quotes</td>
+      </tr>
+    </table>
+
+    <h2>6.2 Stress Detection</h2>
+    <p>The system monitors user behavior to detect stress levels and adapt responses:</p>
+    <table>
+      <tr>
+        <th>Level</th>
+        <th>Indicators</th>
+        <th>AI Response</th>
+      </tr>
+      <tr>
+        <td>😌 Calm</td>
+        <td>Normal typing, few errors</td>
+        <td>Standard interaction</td>
+      </tr>
+      <tr>
+        <td>🎯 Focused</td>
+        <td>Rapid iteration, quick decisions</td>
+        <td>Faster, more direct responses</td>
+      </tr>
+      <tr>
+        <td>😤 Frustrated</td>
+        <td>Repeated errors, backtracking</td>
+        <td>Encouragement, simplification</td>
+      </tr>
+      <tr>
+        <td>😰 Overwhelmed</td>
+        <td>Long pauses, incomplete tasks</td>
+        <td>Mood boosters, break suggestions</td>
+      </tr>
+    </table>
+
+    <!-- Section 7: Plugin Ecosystem -->
+    <h1 class="page-break">7. Plugin Ecosystem</h1>
+
+    <h2>7.1 Sample Plugins</h2>
+    <table>
+      <tr>
+        <th>Plugin</th>
+        <th>Category</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>TailwindMaster</td>
+        <td>Framework</td>
+        <td>Tailwind CSS optimization and conversion</td>
+      </tr>
+      <tr>
+        <td>TypeScriptLinter</td>
+        <td>Language</td>
+        <td>Advanced TypeScript analysis</td>
+      </tr>
+      <tr>
+        <td>GitFlowHelper</td>
+        <td>DevOps</td>
+        <td>Automated Git workflow management</td>
+      </tr>
+      <tr>
+        <td>TestCoverageBoost</td>
+        <td>Testing</td>
+        <td>Test coverage analysis and suggestions</td>
+      </tr>
+      <tr>
+        <td>SecurityAuditor</td>
+        <td>Security</td>
+        <td>Vulnerability scanning and fixes</td>
+      </tr>
+      <tr>
+        <td>DocumentationGen</td>
+        <td>AI</td>
+        <td>Automatic documentation generation</td>
+      </tr>
+      <tr>
+        <td>ReactOptimizer</td>
+        <td>Framework</td>
+        <td>React performance optimization</td>
+      </tr>
+      <tr>
+        <td>DeploymentHelper</td>
+        <td>Deployment</td>
+        <td>CI/CD automation assistance</td>
+      </tr>
+    </table>
+
+    <h2>7.2 Plugin Development</h2>
+    <pre>
+// Plugin Manifest Structure
+const myPlugin: PluginManifest = {
+    id: 'my-custom-plugin',
+    name: 'My Custom Plugin',
+    version: '1.0.0',
+    description: 'Description of what it does',
+    author: { name: 'Your Name', verified: true },
+    category: 'productivity',
+    capabilities: [
+        { type: 'command', name: 'myCommand', description: '...' },
+        { type: 'hook', name: 'beforeSave', description: '...' },
+        { type: 'panel', name: 'MyPanel', description: '...' }
+    ],
+    permissions: ['file:read', 'file:write', 'network'],
+    execute: async (api, params) => {
+        // Plugin logic here
+        return { success: true, result: 'Done!' };
+    }
+};
+        </pre>
+
+    <!-- Section 8: Deployment -->
+    <h1 class="page-break">8. Deployment Capabilities</h1>
+
+    <h2>8.1 Deployment Targets (25+)</h2>
+
+    <h3>Web Platforms</h3>
+    <ul>
+      <li>Vercel - Automatic deployments with preview URLs</li>
+      <li>Netlify - JAMstack hosting with forms and functions</li>
+      <li>Firebase Hosting - Google Cloud integrated hosting</li>
+      <li>Cloudflare Pages - Edge-optimized static hosting</li>
+      <li>AWS Amplify - Full-stack web/mobile deployment</li>
+      <li>GitHub Pages - Free static site hosting</li>
+    </ul>
+
+    <h3>Mobile Platforms</h3>
+    <ul>
+      <li>App Store (iOS) - Apple App Store submission</li>
+      <li>Google Play Store - Android app distribution</li>
+      <li>TestFlight - iOS beta testing</li>
+      <li>Firebase App Distribution - Cross-platform beta</li>
+    </ul>
+
+    <h3>Desktop Platforms</h3>
+    <ul>
+      <li>Steam - Game distribution platform</li>
+      <li>itch.io - Indie game marketplace</li>
+      <li>Mac App Store - macOS distribution</li>
+      <li>Microsoft Store - Windows distribution</li>
+      <li>Snapcraft - Linux snap packages</li>
+    </ul>
+
+    <h3>Serverless Platforms</h3>
+    <ul>
+      <li>AWS Lambda - Event-driven functions</li>
+      <li>Cloudflare Workers - Edge computing</li>
+      <li>Deno Deploy - TypeScript-first serverless</li>
+      <li>Vercel Functions - Serverless with Vercel</li>
+    </ul>
+
+    <h3>Container Registries</h3>
+    <ul>
+      <li>Docker Hub - Public/private container registry</li>
+      <li>Google Container Registry (GCR) - GCP containers</li>
+      <li>Amazon ECR - AWS container registry</li>
+      <li>Azure Container Registry - Azure containers</li>
+      <li>GitHub Container Registry - GitHub packages</li>
+    </ul>
+
+    <!-- Section 9: Testing -->
+    <h1 class="page-break">9. Testing Framework</h1>
+
+    <h2>9.1 Test Types</h2>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Tool</th>
+        <th>Location</th>
+      </tr>
+      <tr>
+        <td>Unit Tests</td>
+        <td>Jest</td>
+        <td><code>tests/queen3max/</code></td>
+      </tr>
+      <tr>
+        <td>Integration Tests</td>
+        <td>Jest</td>
+        <td><code>tests/integration/</code></td>
+      </tr>
+      <tr>
+        <td>E2E Tests</td>
+        <td>Playwright</td>
+        <td><code>tests/e2e/</code></td>
+      </tr>
+    </table>
+
+    <h2>9.2 Test Coverage</h2>
+    <ul>
+      <li>All 10 Queen 3 Max systems have unit tests</li>
+      <li>Cross-system integration tests</li>
+      <li>Application launch and API availability E2E tests</li>
+      <li>Performance benchmarks</li>
+    </ul>
+
+    <h2>9.3 Running Tests</h2>
+    <pre>
+# Unit tests
+npm test
+
+# E2E tests
+npm run test:e2e
+
+# Coverage report
+npm run test:coverage
+        </pre>
+
+    <!-- Section 10: API Reference -->
+    <h1 class="page-break">10. API Reference</h1>
+
+    <h2>10.1 Core APIs</h2>
+    <pre>
+// Model Management
+shadowAPI.listModels()
+shadowAPI.selectModel(modelId: string)
+shadowAPI.chat(messages: Message[])
+shadowAPI.chatStream(messages: Message[])
+
+// Agent Execution
+shadowAPI.executeCommand(command: string, params: any)
+shadowAPI.queueTask(command: string, params: any, priority?: string)
+shadowAPI.getTaskStatus(taskId: string)
+        </pre>
+
+    <h2>10.2 Queen 3 Max APIs</h2>
+    <pre>
+// Personality
+shadowAPI.personality.getAll()
+shadowAPI.personality.getCurrent()
+shadowAPI.personality.set(personalityId: string)
+shadowAPI.personality.detectStress()
+shadowAPI.personality.getSystemPrompt()
+
+// Plugin Marketplace
+shadowAPI.pluginMarketplace.search(query: string, options?: object)
+shadowAPI.pluginMarketplace.install(pluginId: string)
+shadowAPI.pluginMarketplace.uninstall(pluginId: string)
+shadowAPI.pluginMarketplace.getCategories()
+
+// Project Health
+shadowAPI.health.get(projectPath: string)
+shadowAPI.health.runAutoFix(projectPath: string, fixId: string)
+
+// Multi-Modal
+shadowAPI.multimodal.analyzeSketch(sketch: object)
+shadowAPI.multimodal.generateFromSketch(id: string, analysis: object, framework: string)
+shadowAPI.multimodal.startVoice()
+shadowAPI.multimodal.processVoice(sessionId: string, command: string)
+shadowAPI.multimodal.importFigma(url: string)
+
+// Deployment
+shadowAPI.deploy.to(target: string, projectPath: string, config?: object)
+shadowAPI.deploy.getHistory()
+shadowAPI.deploy.getTargets()
+
+// Collaboration
+shadowAPI.collabEngine.createSession(name: string, path: string, owner: string)
+shadowAPI.collabEngine.joinSession(sessionId: string, name: string)
+shadowAPI.collabEngine.getSessions()
+        </pre>
+
+    <!-- Section 11: Development Guide -->
+    <h1 class="page-break">11. Development & Extension Guide</h1>
+
+    <h2>11.1 Adding a New Feature</h2>
+    <ol>
+      <li><strong>Create the backend service</strong> in <code>src/main/ai/[category]/</code></li>
+      <li><strong>Add IPC handlers</strong> in <code>src/main/ipc/advancedHandlers.ts</code></li>
+      <li><strong>Expose API</strong> in <code>src/main/preload.ts</code></li>
+      <li><strong>Create UI component</strong> in <code>src/renderer/components/[category]/</code></li>
+      <li><strong>Add tests</strong> in <code>tests/</code></li>
+    </ol>
+
+    <h2>11.2 Key Files to Understand</h2>
+    <table>
+      <tr>
+        <th>File</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td><code>src/main/index.ts</code></td>
+        <td>Main process entry point</td>
+      </tr>
+      <tr>
+        <td><code>src/main/preload.ts</code></td>
+        <td>IPC bridge and API exposure</td>
+      </tr>
+      <tr>
+        <td><code>src/main/ipc/advancedHandlers.ts</code></td>
+        <td>Queen 3 Max IPC handlers</td>
+      </tr>
+      <tr>
+        <td><code>src/renderer/App.tsx</code></td>
+        <td>Main React application</td>
+      </tr>
+      <tr>
+        <td><code>src/renderer/utils/codingIntent.ts</code></td>
+        <td>Slash command parsing</td>
+      </tr>
+    </table>
+
+    <h2>11.3 Coding Standards</h2>
+    <ul>
+      <li>TypeScript strict mode enabled</li>
+      <li>React functional components with hooks</li>
+      <li>Singleton pattern for backend services</li>
+      <li>IPC channel naming: <code>category:action</code></li>
+      <li>Comprehensive error handling with typed errors</li>
+    </ul>
+
+    <!-- Section 12: Future Opportunities -->
+    <h1 class="page-break">12. Future Enhancement Opportunities</h1>
+
+    <h2>12.1 High Priority</h2>
+    <div class="callout callout-warning">
+      <strong>Recommended Improvements:</strong>
+      <ul>
+        <li>Advanced streaming for real-time code generation</li>
+        <li>Contextual error recovery with automatic fixes</li>
+        <li>React/Vue component live preview</li>
+        <li>Automated test generation from code</li>
+      </ul>
+    </div>
+
+    <h2>12.2 Medium Priority</h2>
+    <ul>
+      <li>Voice control integration improvements</li>
+      <li>Dynamic plugin loading without restart</li>
+      <li>Real-time multi-user collaboration enhancements</li>
+      <li>Analytics and usage tracking</li>
+      <li>Machine learning model fine-tuning</li>
+    </ul>
+
+    <h2>12.3 Architectural Improvements</h2>
+    <ul>
+      <li>Consolidate type definitions across packages</li>
+      <li>Add comprehensive TypeScript types for shadowAPI</li>
+      <li>Implement proper error boundaries</li>
+      <li>Add unit tests for IPC handlers</li>
+      <li>Improve bundle size with code splitting</li>
+    </ul>
+
+    <h2>12.4 Revolutionary Ideas</h2>
+    <ul>
+      <li><strong>AI Agent Federation</strong> - Connect multiple Shadow AI instances</li>
+      <li><strong>Predictive Coding</strong> - Anticipate next coding tasks</li>
+      <li><strong>Code Archaeology</strong> - Understand legacy codebases automatically</li>
+      <li><strong>Semantic Versioning AI</strong> - Auto-detect breaking changes</li>
+      <li><strong>Cross-Language Translation</strong> - Convert entire projects between languages</li>
+    </ul>
+
+    <!-- Footer -->
+    <div
+      style="margin-top: 60px; padding-top: 20px; border-top: 2px solid #e5e7eb; text-align: center; color: #64748b;">
+      <p><strong>Shadow AI Agent</strong> — Version 4.0 — Queen 3 Max Edition</p>
+      <p>December 2024</p>
+      <p style="margin-top: 20px; font-size: 9pt;">
+        To export as PDF: Open this file in your browser and use<br>
+        <strong>File → Print → Save as PDF</strong>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
